@@ -1,0 +1,34 @@
+baseurl:             ''
+permalink:           pretty
+sass:
+  sass_dir: assets/css
+
+# Gems Setup
+plugins: [jekyll-paginate]
+paginate:            5
+
+# Webpage Details
+title:               'Vaibhav Gupta'
+tagline:             'AI Researcher | Software Engineer'
+description:         'Perpetual student. Interested in Maths, Computer Science and Machine Learning.'
+url:                 'http://guptv93.github.io'
+
+# Author Details
+author:
+  name:              'Vaibhav Gupta'
+  twitter:           'https://twitter.com/vvg239'
+  linkedin:          'https://www.linkedin.com/in/guptv/'
+  email:             'vvg239[at]nyu[dot]edu'
+  github:            'https://github.com/guptv93'
+
+# Collections
+collections:
+  probability:
+    output: true
+    sort_by: item_num
+    permalink: /:collection/:title
+  linear_algebra:
+    output: true
+    sort_by: item_num
+    permalink: /algebra/:title
+excerpt_separator: <!--excerpt-->
