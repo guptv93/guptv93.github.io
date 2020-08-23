@@ -21,7 +21,7 @@ $$
 
 ![image-20200628162344123](/assets/images/probability/transformations.assets/image-20200628162344123.png)
 
-Notice that the area under the graph is constant (total probability over $\R$ is $1$). Therefore, if the graph is stretched horizontally, then it will be shrinked vertically.
+Notice that the area under the graph is constant (total probability over $\mathbb{R}$ is $1$). Therefore, if the graph is stretched horizontally, then it will be shrinked vertically.
 
 
 

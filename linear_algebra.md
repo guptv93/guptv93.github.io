@@ -6,8 +6,8 @@ permalink : /algebra/
 
 <h1> {{ page.title }} </h1>
 <img class="note-cover" src="/assets/images/linear_algebra/algebra-cover.png"/>
-
-{% for note in site.linear_algebra %}
+{% assign linear_algebra = site.linear_algebra | sort: "item_num" %}
+{% for note in linear_algebra %}
 <h3>
   <a href="{{ note.url }}">
     {{ note.title }}
