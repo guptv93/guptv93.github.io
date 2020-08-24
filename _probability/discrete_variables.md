@@ -22,9 +22,7 @@ $$
 
 #### Overview
 
-<!--excerpt-->
-In this section we go over what Discrete Random Variables are, and how we calculate their Probability Mass Functions. Then we look at a few common types of Discrete Random Variables, specifically Uniform RV, Bernoulli RV, Binomial RV and Geometric RV. Finally we learn about Expected Values and their properties.
-<!--excerpt-->
+<p><!--excerpt-->In this section we go over what Discrete Random Variables are, and how we calculate their Probability Mass Functions. Then we look at a few common types of Discrete Random Variables, specifically Uniform RV, Bernoulli RV, Binomial RV and Geometric RV. Finally we learn about Expected Values and their properties.<!--excerpt--></p>
 
 #### Random Variable
 

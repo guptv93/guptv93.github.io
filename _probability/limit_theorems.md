@@ -16,9 +16,7 @@ $$
 
 #### Overview
 
-<!--excerpt-->
-When we introduced the topic of *Expected Value*, we introduced it as the average of all possible values that a random variable can take, weighted against the probability of each value. But we've been picturing Expected Value of a random variable as the average value of the random variable during multiple repetitions of the experiment. Similarly, probability was introduced as the measure of likelihood of an event (following the axioms of non-negativity, additivity and normalization) but we've been picturing it as the frequency of occurrence of the event. This short note goes into why these are valid assumptions. For a more detailed explanation, go through Chapter 5 of *Introduction to Probability.* 2nd ed. (Bertsekas, Dimitri, and John Tsitsiklis).
-<!--excerpt-->
+<p><!--excerpt--> When we introduced the topic of *Expected Value*, we introduced it as the average of all possible values that a random variable can take, weighted against the probability of each value. But we've been picturing Expected Value of a random variable as the average value of the random variable during multiple repetitions of the experiment. Similarly, probability was introduced as the measure of likelihood of an event (following the axioms of non-negativity, additivity and normalization) but we've been picturing it as the frequency of occurrence of the event. This short note goes into why these are valid assumptions. For a more detailed explanation, go through Chapter 5 of *Introduction to Probability.* 2nd ed. (Bertsekas, Dimitri, and John Tsitsiklis). <!--excerpt--></p>
 
 #### The Weak Law of Large Numbers
 

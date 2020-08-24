@@ -23,9 +23,7 @@ $$
 
 #### Overview
 
-<!--excerpt-->
-We study continuous random variables and their probability density functions. PDFs replace PMFs from the discrete case. We then study expected values and variances of continuous random variables. We also look at Cumulative Density Functions and then study common types of continuous distributions, namely Uniform, Exponential and Normal Distributions.
-<!--excerpt-->
+<p><!--excerpt-->We study continuous random variables and their probability density functions. PDFs replace PMFs from the discrete case. We then study expected values and variances of continuous random variables. We also look at Cumulative Density Functions and then study common types of continuous distributions, namely Uniform, Exponential and Normal Distributions.<!--excerpt--></p>
 
 #### Probability Density Functions
 

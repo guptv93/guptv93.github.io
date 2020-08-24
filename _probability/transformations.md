@@ -8,10 +8,7 @@ item_num: 4
 # Transformations
 
 ### Linear Transformations of Random Variables
-<!--excerpt-->
-Given the PDF of a random variable $X$, how do you get the PDF of a derived random variable 
-<!--excerpt-->
-$2X+1$. It is very simple. The probability of any value $x$ will now be the probability of $2x+1$. Therefore, the entire PDF is stretched (horizontally) to twice its size, and then translated horizontally to the right by $1$ unit.   
+<p><!--excerpt-->Given the PDF of a random variable $X$, how do you get the PDF of a derived random variable <!--excerpt--> $2X+1$. It is very simple. The probability of any value $x$ will now be the probability of $2x+1$. Therefore, the entire PDF is stretched (horizontally) to twice its size, and then translated horizontally to the right by $1$ unit.</p>
 
 ![image-20200628161957719](/assets/images/probability/transformations.assets/image-20200628161957719.png)
 

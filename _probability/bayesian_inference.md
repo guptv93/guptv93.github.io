@@ -47,9 +47,7 @@ Statistical Inference is the process of extracting information about an unknown 
 
 Within the field of statistics there are two prominent schools of thought, with opposing views: the Bayesian and the Classical (also called Frequentist). Their fundamental difference relates to the nature of the unknown models or variables. In the Bayesian view, they are treated as random variables with known distributions. In the classical view, they are treated as deterministic quantities that happen to be unknown.
 
-<!--excerpt-->
-The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions. 
-<!--excerpt-->
+<p><!--excerpt--> The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions. <!--excerpt--></p>
 We conduct an experiment, make some observation ($X$) and then try to infer the value of the random variable ($\Theta$) during the conducted experiment. We derive a posterior distribution $\prob(\Theta \mid X)$ which tells us how likely it is that $\Theta = \theta$ when the observation $X$ was made.
 
 By contrast, in Classical Inference, the unknown quantity $\theta$ is viewed as a deterministic constant that happens to be unknown. It then strives to develop an estimate of $\theta$ that has some performance guarantees (confidence interval).

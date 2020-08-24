@@ -23,9 +23,8 @@ $$
 
 *Lecture 11*
 
-<!--excerpt-->
-Here we learn how to derive the distribution of a function of a random variable $Y = g(X)$, given the distribution of $X$ itself. We learn how to do that for discrete and continuous variables separately and then devise a common approach for both kinds using cummulative densities. 
-<!--excerpt-->
+<p><!--excerpt-->Here we learn how to derive the distribution of a function of a random variable $Y = g(X)$, given the distribution of $X$ itself. We learn how to do that for discrete and continuous variables separately and then devise a common approach for both kinds using cummulative densities.<!--excerpt--></p>
+
 Note that the expected value of a function of random variable can be found out directly by using the formula:
 
 $$
