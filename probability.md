@@ -18,9 +18,8 @@ permalink : /probability/
   </a>
 </h3>
 
-<p class="capitalize">
-  {% assign excerpt = note.content | split: site.excerpt_separator %}
-  {{ excerpt[1] | truncatewords: 25 }}
+<p>
+  {{ note.excerpt }}
 </p>
 
 {% endfor %}

@@ -3,6 +3,7 @@ layout: default
 title: Continuous Random Variables
 slug: continuous-variables
 item_num: 3
+excerpt: We study continuous random variables and their probability density functions. PDFs replace PMFs from the discrete case. We then discuss Cumulative Densities, which can be used to unify calculations for both discrete and continuous variables. There is a near one-one correspondence between the topics in discrete and continuous cases.
 ---
 
 $$
@@ -21,19 +22,21 @@ $$
 
 *Lecture 08*
 
-#### Overview
 
-<p><!--excerpt-->We study continuous random variables and their probability density functions. PDFs replace PMFs from the discrete case. We then study expected values and variances of continuous random variables. We also look at Cumulative Density Functions and then study common types of continuous distributions, namely Uniform, Exponential and Normal Distributions.<!--excerpt--></p>
+### Overview
 
-#### Probability Density Functions
+We study continuous random variables and their probability density functions. PDFs replace PMFs from the discrete case. We then study expected values and variances of continuous random variables. We also look at Cumulative Density Functions and then study common types of continuous distributions, namely Uniform, Exponential and Normal Distributions.
+
+
+### Probability Density Functions
 
 Probability Density Function (PDF) of a continuous random variable represents the probability density (probability per unit length) near each value of the random variable. PDF of a Random Variable $X$ is denoted by $f_X(x)$.
 
 $$
-\prob(a \leq X \leq a + \delta) = f_X(x)\cdot\delta
+\prob(a \leq X \leq a + \delta) = f_X(a)\cdot\delta
 $$
 
-Thus $f_X(a)$ gives the probability of the $X$ lying in a very very small interval close to $a$ per unit length. It is important to understand that even though PDF is used to calculate event probabilities, $f_X(a)$ is not the probability of any particular event $a$. Also $f_X(x)$ is not less than or equal to one for all $ x \in \R$. Rather, 
+Thus $f_X(a)$ gives the probability of the $X$ lying in a very very small interval close to $a$ per unit length. It is important to understand that even though PDF is used to calculate event probabilities, $f_X(a)$ is not the probability of any particular event $a$. Also $f_X(x)$ is not less than or equal to one for all $ x \in \mathbb{R}$. Rather, 
 
 $$
 \int_{-\infty}^{+\infty}f_X(x)dx = 1
@@ -47,7 +50,8 @@ $$
 
 This tells us that at any single point, the PDF is exactly zero. Why? If $X$ denotes height of a person, then can't we say that the height of a person is 180.5 cms with certainty? The thing to notice here is that even in the previous statement, we are specifying a range. The range covers all the double, triple, and higher precision floating points greater than 180.5 and less than 180.6.
 
-#### Expected Value and Variance
+
+### Expected Value and Variance
 
 $$
 \expect[X] = \int_{-\infty}^{+\infty}xf_X(x)dx
@@ -112,15 +116,17 @@ $$
 \v(X) = \frac{1}{\lambda^2} \\
 $$
 
-#### Cumulative Distribution Function (CDF)
+
+### Cumulative Distribution Function (CDF)
 
 $$
 F_X(x) = \prob(X\leq x)
 $$
 
-This is a concept that can be used to describe both, probability laws for discrete as well as continuous random variables. The value of CDF at a point $x$ is equal to the probability of $X$ being less than or equal to $x$. CDF is a non-decreasing function; and as $x \to +\infty$, $F_X(x) \to -1$.  
+This is a concept that can be used to describe both, probability laws for discrete as well as continuous random variables. The value of CDF at a point $x$ is equal to the probability of $X$ being less than or equal to $x$. CDF is a non-decreasing function; and as $x \to +\infty$, $F_X(x) \to 1$.  
 
-#### Normal Distributions  
+
+### Normal Distributions  
 
 The General Normal Distribution has two parameters $\mu$ and $\sigma^2$. If $X$ is a Normal Variable with parameters $\mu$ and $\sigma^2$, it is denoted as $X = N(\mu,\sigma^2)$ and the PDF of $X$ is as follows:
 
@@ -163,11 +169,14 @@ $$
 
 This equation doesn't have any closed form solution. Fortunately, we do have tables for calculating cumulative densities of normal variables. For details about using these Standard Normal Tables, refer to [Lec 8.9](https://www.youtube.com/watch?time_continue=34&v=DrBIORgOzSA). 
 
+
+
 ## Conditioning on Events; Joint PDFs of Multiple RVs
 
 *Lecture 09*  
 
-#### Conditional PDF, given an Event
+
+### Conditional PDF, given an Event
 
 We know that the PDF for a continuous random variable $X$, is defined by the following mathematical equation:
 
@@ -213,7 +222,8 @@ $$
 
 The total probability/expectation theorems are useful if the probability distribution is defined piecewise (different definition on different intervals). For example, the PDF might be piecewise uniform or uniform on one piece and geometric on another. This is also useful in case of Mixed Random Variables (Discrete in some scenarios, Continuous in others). In that case we can work with the CDF, instead of PDF. Remember that CDF is defined for both Discrete and Random cases. 
 
-#### Memorylessness of Exponential PDFs
+
+### Memorylessness of Exponential PDFs
 
 Consider the lifetime of a light bulb. Suppose the bulb is switched on at time 0 and it stops functioning at an instant given by random variable $T$.
 
@@ -238,9 +248,10 @@ $$
 
 Thus, the probability of a used light bulb working for $x$ time is the same as the probability of a new light bulb working for $x$ time. Go for the cheaper used one!!  
 
-#### Joint PDFs of Multiple RVs
 
-$f_{X,Y}(a,b)$ represents the probability that the random variables $X$ and $Y$, associated with the same experiment, take values very very close to $a$ and $b$ respectively.
+### Joint PDFs of Multiple RVs
+
+$f_{X,Y}(a,b)$ represents the probability that the random variables $X$ and $Y$, associated with the same experiment, take values very very close to $a$ and $b$ per unit area.
 
 $$
 \prob(a < X < a+\epsilon , b < Y < b+\delta) = f_{X,Y}(a,b) \cdot \epsilon \cdot \delta
@@ -270,7 +281,8 @@ Basically marginal distribution of $X$ tells us how many events (per unit length
 
 *Lecture 10*
 
-#### Conditional PDF, given another Variable
+
+### Conditional PDF, given another Variable
 
 We use Joint PDFs, explained in the previous lecture, to define conditionality between multiple random variables.
 
@@ -293,7 +305,8 @@ $$
 \expect[X] = \int_{-\infty}^{+\infty}f_Y(y)\,\expect[X \mid Y=y]\,dy
 $$
 
-#### Independence
+
+### Independence
 
 $X$ and $Y$ are independent iff:
 
@@ -312,9 +325,10 @@ If $X$ and $Y$ are independent:
 * $\expect[XY] = \expect[X]\,\expect[Y]$  
 * $\v(X + Y) = \v(X) + \v(Y)$  
 
-#### Stick Problem
 
-Break a stick of length $l$ twice, once at $X$ and then at $Y$. $X$ is uniform in $[0,l]$ and $Y$ is uniform in $[0,X]$. 
+### Stick Problem
+
+Break a stick of length $l$ twice, once at $X$ and then at $Y$. $X$ is uniform in $[0,l]$ and $Y$ is uniform in $[0,X]$. How do we find the PDF of $Y$ and the expected value of $Y$?
 
 $$
 f_{X,Y}(x,y) = f_X(x) f_{Y|X}(y|x) = \frac{1}{lx}\\ 
@@ -339,12 +353,13 @@ $$
 \end{align}
 $$
 
-#### Independent Normals
+
+### Independent Normals
 
 Here $X$ and $Y$ are independent normal variables and we are interested in studying their Joint PDF given by
 $$f_{X,Y}(x,y) = f_X(x)f_Y(y)$$  
 
-If $X$ and $Y$ are standard normals, then
+If $X$ and $Y$ are independent standard normals, then
 
 $$
 \begin{align}
@@ -386,12 +401,12 @@ $$
 
 $\Sigma$ is the covariance matrix of $X$ and $Y$. The major and minor axes of the elliptical contours are now along the eigenvectors $\Sigma$. If $X$ and $Y$ are independent, then $\Sigma$ is a diagonal matrix and the eigenvectors are along the co-ordinate axes. We discuss this, in some detail, in our notes on linear algebra (specifically in the section on positive definite matrices).
 
-#### Bayesian Inference
+### Bayesian Inference
 
 Bayesian Inference is all about infering the value of an unobserved variable $X$ on the basis of an observed variable $Y$. Instead of depending on the prior probability distribution of $X$, given by $p_X(.)$, we depend on the posterior probability distribution $p_{X\mid Y}(.)$ We have seen the Bayes' Rule for general probability and events. Here we translate it into PMF notation.  
 
 ![image-20200627184359134](/assets/images/probability/continuous_random_variables.assets/image-20200627184359134.png)
 
-It is not necessary that the observed variable and unobserved variable are both Discrete or Continuous. One might be continuous and other might be discrete. Bayes' Rule for these situations can be derived from the definition of Joint Probabilities using similar techniques. See [Lec 10.9](https://www.youtube.com/watch?v=363JQxFwLXg&list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6&index=108) for more details.  
+It is not necessary that the observed variable and unobserved variable are both Discrete or Continuous. One might be continuous and the other might be discrete. Bayes' Rule for these situations can be derived from the definition of Joint Probabilities using similar techniques. See [Lec 10.9](https://www.youtube.com/watch?v=363JQxFwLXg&list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6&index=108) for more details.  
 
-Finally we are shown two scenarios where this Mixed Bayes' Rule is used. First is the Binary Signal Detection. Here we observe a continuous signal over the wire, and we need to infer whether it is 0 or 1 (discrete). Second is Coin Bias Inference. Here the observed variable is the number of heads (discrete). The variable to be infered (bias) is continuous between 0 and 1.
+Finally the lecture covers two scenarios where this Mixed Bayes' Rule is used. First is the Binary Signal Detection. Here we observe a continuous signal over the wire, and we need to infer whether it is 0 or 1 (discrete). Second is Coin Bias Inference. Here the observed variable is the number of heads (discrete). The variable to be infered (bias) is continuous between 0 and 1.

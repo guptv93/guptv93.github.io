@@ -34,6 +34,11 @@ body {
       padding-bottom: 0.25rem;
 }
 
+.md-indent {
+      list-style-type: none;
+}
+
 .capitalize::first-letter {
       text-transform: uppercase;
 }
+

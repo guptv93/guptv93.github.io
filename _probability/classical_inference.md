@@ -3,6 +3,7 @@ layout: default
 title: Classical Inference
 slug: frequentist
 item_num: 8
+excerpt: In Bayesian view, the unknown variables are treated as random variables with known prior distrubtions. By contrast, in Classical Inference, the unknown quantity $\theta$ is viewed as a deterministic constant that happens to be unknown. It then strives to develop an estimate of $\theta$ that has some performance guarantees.
 ---
 
 
@@ -22,7 +23,7 @@ Within the field of statistics there are two prominent schools of thought, with 
 
 In Bayesian view, the unknown variables are treated as random variables with known prior distrubtions. We conduct an experiment, make some observation $X$, and then try to infer the value of the random variable $\Theta$ during the conducted experiment. We derive a posterior distribution $P(\Theta \mid X)$ which tells us how likely it is that $\Theta = \theta$ when the observation $X$ was made.
 
-By contrast, <!--excerpt--> in Classical Inference, the unknown quantity $\theta$ is viewed as a deterministic constant that happens to be unknown. It then strives to develop an estimate of $\theta$ that has some performance guarantees (confidence interval). <!--excerpt--> Suppose that we are trying to measure a physical constant, say the mass of the electron, by means of noisy experiments. The classical statistician will argue that the mass of the electron, while unknown, is just a constant, and that there is no justification for modeling it as a random variable. The Bayesian statistician will counter that a prior distribution simply reflects our Rtate of knowledge. For example, if we already know from past experiments a rough range for this quantity, we can express this knowledge by postulating a prior distribution which is concentrated over that range. 
+By contrast, in Classical Inference, the unknown quantity $\theta$ is viewed as a deterministic constant that happens to be unknown. It then strives to develop an estimate of $\theta$ that has some performance guarantees (confidence interval). Suppose that we are trying to measure a physical constant, say the mass of the electron, by means of noisy experiments. The classical statistician will argue that the mass of the electron, while unknown, is just a constant, and that there is no justification for modeling it as a random variable. The Bayesian statistician will counter that a prior distribution simply reflects our state of knowledge. For example, if we already know from past experiments a rough range for this quantity, we can express this knowledge by postulating a prior distribution which is concentrated over that range. 
 
 A classical statistician will often object to the arbitrariness of picking a particular prior. A Bayesian statistician will counter that every statistical procedure contains some hidden choices. Furthermore, in some cases, classical methods turn out to be equivalent to Bayesian ones, for a particular choice of a prior. By locating all of the assumptions in one place, in the form of a prior, the Bayesian statistician contends that these assumptions are brought to the surface and are amenable to scrutiny.
 
@@ -43,42 +44,40 @@ Our task in classical inference is to come up with an estimate $\hat{\Theta}$. T
 There are two types of tasks in classical inference:
 1. Parameter Estimation:
     
-In parameter estimation, $\theta$ can take values from a continuous range of real numbers. Thus, we have to assign a value to $\hat{\Theta}$ from this continuous interval.  We are intersted in estimators ($g$) that have some desirable properties. For example, we may require that the expected value of the estimation error be zero, or that the estimation error be small with high probability, for all possible values of $\theta$.
+	In parameter estimation, $\theta$ can take values from a continuous range of real numbers. Thus, we have to assign a value to $\hat{\Theta}$ from this continuous interval.  We are interested in estimators ($g$) that have some desirable properties. For example, we may require that the expected value of the estimation error be zero, or that the estimation error be small with high probability, for all possible values of $\theta$.
     
 2. Hypothesis Testing:
 
-    In hypothesis testing, there are only a fixed number of discrete values that $\theta$ can take and we have to choose a value (from all possible values) for $\hat{\Theta}$ in each experiment. In particular, $g$ calculates the "likelihood" of each hypothesis under the observed data, and chooses a hypothesis by comparing the likelihoods with a suitable chosen threshold. Here the range of $g$ is the set of all possible hypothesis.
+    In hypothesis testing, there are only a fixed number of discrete values that $\theta$ can take and we have to choose a value (from all possible values) for $\hat{\Theta}$ in each experiment. In particular, $g$ calculates the "likelihood" of each hypothesis under the observed data, and chooses a hypothesis by comparing the likelihoods with a suitably chosen threshold. Here the range of $g$ is the set of all possible hypothesis.
 
 
 
 ## Parameter Estimation
 
-#### Expected Value Estimation
+### Expected Value Estimation
 
 We will study Classical Estimation by trying to estimate the mean of a random variable. Suppose $X_1,X_2,\dots,X_n$ are i.i.d. (independent identically distributed) random variables drawn from a Gaussian Distribution with mean $\theta$ and variance $\sigma^2$. Parameter $\theta$ is unknown and we want to estimate it using classical statistics.
 
 We can take our estimator to be $g$, where
 
 $$
-\hat{\Theta}_n = g((X_1, X_2, \dots, X_n)) = \textrm{sample mean} = \frac{X_1 + X_2 + \dots + X_n}{n}
+\hat\Theta_n = g((X_1, X_2, \dots, X_n)) = \textrm{sample mean} = \frac{X_1 + X_2 + \dots + X_n}{n}
 $$
 
 The desirable properties of any estimator $g$ are as follows:  
-1. $\expect[\hat{\Theta}_n] = \theta$ **(zero bias)**
+1. $\expect[\hat\Theta_n] = \theta$ **(zero bias)**  
+	This property should be true for all $\theta$. We don't want our estimates to be systematically low or high, no matter what the value of $\theta$ is. This property is true for our estimator function above.
 
-  This property should be true for all $\theta$. We don't want our estimates to be systematically low or high, no matter what the value of $\theta$ is. This property is true for our estimator function above.
+2. $\hat\Theta_n \to \theta$, as $n \to \infty$ **(consistency)**  
+	This property also should be true for all $\theta$. Weak Law of Large Numbers ensures that our simple estimator for mean estimation problem above, follows this property for all values of $\theta$.
 
-2. $\hat{\Theta}_n \to \theta$, as $n \to \infty$ **(consistency)**
+3. Mean Squared Error $\expect[(\hat\Theta_n - \theta)^2]$ **(mse)**  
+	Mean squared error should be as less as possible. For our specific problem of mean estimation and our specific estimator $g$, we know that $\expect[\hat\Theta_n] = \theta$. Therefore, $E[(\hat\Theta_n - \theta)^2] = \v(\hat\Theta_n) = \sigma^2/n$. Therefore, as $n$ increases, the value of MSE decreases.
 
-  This property also should be true for all $\theta$. Weak Law of Large Numbers ensures that our simple estimator for mean estimation problem above, follows this property for all values of $\theta$.
 
-3. Mean Squared Error $\expect[(\hat{\Theta}_n - \theta)^2]$ **(mse)**
+### Mean Squared Error of an Estimator
 
-  Mean squared error should be as less as possible. For our specific problem of mean estimation and our specific estimator $g$, we know that $\expect[\hat{\Theta}_n] = \theta$. Therefore, $E[(\hat{\Theta}_n - \theta)^2] = \v(\hat{\Theta}_n) = \sigma^2/n$. Therefore, as $n$ increases, the value of MSE decreases.
-
-#### Mean Squared Error of an Estimator
-
-Unlike the example that we saw above, $\expect[\hat{\Theta}_n] \neq \theta$ for all estimation problems. In that case, using the identity $\expect[Z^2] = \v(Z) + (\expect[Z])^2$, we derive:  
+Unlike the example that we saw above, $\expect[\hat\Theta_n] \neq \theta$ for all estimation problems. In that case, using the identity $\expect[Z^2] = \v(Z) + (\expect[Z])^2$, we derive:  
 
 $$
 \expect[(\hat{\Theta} - \theta)^2] = \v(\hat{\Theta} - \theta) + (\expect[\hat{\Theta} - \theta])^2 = \v(\hat{\Theta}) + (\expect[\hat{\Theta}] - \theta)^2 = \v(\hat{\Theta}) + \textrm{bias}^2
@@ -87,22 +86,22 @@ $$
 In the previous example, our bias was zero. So,
 
 $$
-\expect[(\hat{\Theta}_n - \theta)^2] = \v(\hat{\Theta}_n) = \sigma^2/n
+\expect[(\hat\Theta_n - \theta)^2] = \v(\hat\Theta_n) = \sigma^2/n
 $$
 
 If we take a dumb estimator which always gives out an estimate of 0, irrespective of the observation, then
 
 $$
-\expect[(\hat{\Theta}_n - \theta)^2] = \v(\hat{\Theta}_n) + \textrm{bias} = 0 + (0 - \theta)^2 = \theta^2
+\expect[(\hat\Theta_n - \theta)^2] = \v(\hat\Theta_n) + \textrm{bias} = 0 + (0 - \theta)^2 = \theta^2
 $$
 
 Generally, the task of Parameter Estimation includes reporting the $MSE$ or $\sqrt{MSE}$, along with designing and implementing an estimator with most of the desirable properties.
 
-#### Confidence Interval
+### Confidence Interval
 
 The value of an estimator $\hat{\Theta}$ may not be informative enough on its own. One common practice is to provide the standard error along with the estimate. Another technique is to specify a confidence interval.
 
-A $1-\alpha$ confidence interval is an interval $[\hat{\Theta}_-,\hat{\Theta}_+]$ , s.t.  
+To find a $1 - \alpha$ confidence interval, we replace the point estimator $\hat\Theta_n$ by a lower estimator $\hat\Theta_-$, and an upper estimator $\hat\Theta_+$, such that
 
 $$
 \begin{align}
@@ -112,16 +111,16 @@ $$
 
 $\alpha$ mostly takes a value of $0.05$ or $0.01$. 
 
-We have mentioned beforhand that $\theta$ is not a random variable. Then how does probability of $\theta$ lying in an interval make sense? It makes sense because $\hat{\Theta}_-$ and $\hat{\Theta}_+$ are random variables. The probability is the likelihood of our range being correct, not the likelihood of $\theta$ taking up a particular value. Suppose that after the observations are obtained, the confidence interval turns out to be $[-2.3,4.1]$. We cannot say that $\theta$ lies in $[-2.3, 4.1]$ with probability $0.95$, because the latter statement does not involve any random variables; after all, in the classical approach, $\theta$ is a constant.
+We have mentioned beforhand that $\theta$ is not a random variable. Then how does probability of $\theta$ lying in an interval make sense? It makes sense because $\hat\Theta_-$ and $\hat\Theta_+$ are random variables. The probability is the likelihood of our range being correct, not the likelihood of $\theta$ taking up a particular value. Suppose that after the observations are obtained, the confidence interval turns out to be $[-2.3,4.1]$. We cannot say that $\theta$ lies in $[-2.3, 4.1]$ with probability $0.95$, because the latter statement does not involve any random variables; after all, in the classical approach, $\theta$ is a constant.
 
-For a concrete interpretation, look at it like this. We construct a confidence interval many times, using the same statistical procedure, i.e., each time, we obtain an independent collection of $n$ observations, and construct the corresponding $95$% confidence interval. We then expect that about $95\%$ of these confidence intervals will include $\theta$. This would be true regardless of what the value of $\theta$ is.  
+For a concrete interpretation, look at it like this. We construct a confidence interval many times, using the same statistical procedure, i.e., each time, we obtain an independent collection of $n$ observations, and construct the corresponding $95$% confidence interval. We then expect that about $95\%$ of these confidence intervals will include $\theta$. This would be true regardless of what the value of $\theta$ is. A much better way to explain confidence intervals is through the Mean Estimation Problem below.
 
 **Confidence Interval for the Mean Estimation Problem:**
 
 Suppose that the observations $X_i$ are i.i.d. normal, with unknown $\theta$ and known variance $\sigma^2$. We want to find a $95\%$ confidence interval for $\theta$. Then the sample mean estimator 
 
 $$
-\hat{\Theta}_n = \frac{X_1 + \dots + X_n}{n}
+\hat\Theta_n = \frac{X_1 + \dots + X_n}{n}
 $$
 
 is normal, with mean $\theta$ and variance $\frac{\sigma^2}{n}$. 
@@ -131,30 +130,30 @@ The normal table tells us that $\Phi(1.96) = 0.975$. In other words $\prob(S < 1
 We know that 
 
 $$
-\frac{\hat{\Theta}_n - \theta}{\sigma/\sqrt n}
+\frac{\hat\Theta_n - \theta}{\sigma/\sqrt n}
 $$
 
 is a standard normal variable. Thus the probability that it lies in $[-1.96, 1.96]$ is $95\%$.
 
 $$
-\prob\bigg(\frac{|\hat{\Theta}_n - \theta|}{\sigma/\sqrt n}\leq 1.96\bigg) = 0.95
+\prob\bigg(\frac{|\hat\Theta_n - \theta|}{\sigma/\sqrt n}\leq 1.96\bigg) = 0.95
 $$
 
 We can rewrite this as 
 
 $$
-\prob\bigg(\hat{\Theta}_n -1.96 \frac{\sigma}{\sqrt n} \leq \theta \leq \hat{\Theta}_n + 1.96 \frac{\sigma}{\sqrt n}\bigg) = 0.95
+\prob\bigg(\hat\Theta_n -1.96 \frac{\sigma}{\sqrt n} \leq \theta \leq \hat\Theta_n + 1.96 \frac{\sigma}{\sqrt n}\bigg) = 0.95
 $$
 
 which implies that 
 
 $$
-\bigg[\hat{\Theta}_n -1.96 \frac{\sigma}{\sqrt n}, \hat{\Theta}_n + 1.96 \frac{\sigma}{\sqrt n}\bigg]
+\bigg[\hat\Theta_n -1.96 \frac{\sigma}{\sqrt n}, \hat\Theta_n + 1.96 \frac{\sigma}{\sqrt n}\bigg]
 $$
 
 is a $95\%$ confidence interval.
 
-#### Maximum Likelihood Estimation
+### Maximum Likelihood Estimation
 
 We have seen that if the unknown parameter can be expressed in the form of expected value of $X$ (or $g(X)$)
 
@@ -193,22 +192,22 @@ $$
 To maximize this expression, we take the derivation with respect to $\theta$, which leads to the following formula:
 
 $$
-\hat{\theta}_{ML} = \frac{k}{n}
+\hat\theta_{ML} = \frac{k}{n}
 $$
 
 Or, in terms of random variables
 
 $$
-\hat{\Theta}_{ML} = \frac{K}{n}
+\hat\Theta_{ML} = \frac{K}{n}
 $$
 
-[Lec 20.10](https://www.youtube.com/watch?v=00krscK7iBA&list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6&index=207) goes over this example. It also discusses how to derive Maximum Likelihood estimate for the mean of a Gaussian Distribution. We see that for this mean inference problem, $\hat{\Theta}_{ML}$ is the same as the estimate that we obtained earlier using the estimator $g(X) = \sum{X_i}/n$
+[Lec 20.10](https://www.youtube.com/watch?v=00krscK7iBA&list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6&index=207) goes over this example. It also discusses how to derive Maximum Likelihood estimate for the mean of a Gaussian Distribution. We see that for this mean inference problem, $\hat\Theta_{ML}$ is the same as the estimate that we obtained earlier using the estimator $g(X) = \sum{X_i}/n$
 
 
 
 ## Hypothesis Testing
 
-#### Binary Hypothesis Testing
+### Binary Hypothesis Testing
 
 Binary Hypothesis Testing is an inference problem where $\theta$ can take just two values. For historical reasons, we forgo the $\theta$ notation and denote the two hypotheses as $H_0$ and $H_1$. $H_0$ is often called the null hypothesis and $H_1$ the alternative hypothesis. $H_0$ plays the role of a default model, to be proved or disproved on the basis of available data.
 
@@ -227,7 +226,7 @@ $$
 L(x) = \frac{\prob_X(x;H_1)}{\prob_X(x;H_0)}
 $$
 
-We see that the Likelihood Ratio will be larger, if the probability of making the observation $x$ given the alternative hypothesis is true is more than the probability of making the observation given the null hypothesis is true. Thus, more the likelihood ratio, the more probability of rejecting $H_0$.
+We see that the Likelihood Ratio will be larger, if the probability of making the observation $x$ given the alternative hypothesis is true, is more than the probability of making the observation given the null hypothesis is true. Thus, more the likelihood ratio, the more probability of rejecting $H_0$.
 
 We define the rejection regions as follows:
 
@@ -246,7 +245,7 @@ When $L(X)$ is a continuous random variable, the probability $\prob(L(X) > \xi; 
 1. Strive for approximate equality.
 2. Choose the smallest value of $\xi$ that satisfies $P(L(X) > \xi; Ho) \leq \alpha$.
 
-#### Significance Testing
+### Significance Testing
 
 Hypothesis testing problems encountered in realistic settings do not always involve two well-specified alternatives, so the methodology in the preceding section cannot be applied. The purpose of this section is to introduce an approach to this more general class of problems.
 
@@ -281,7 +280,7 @@ $$
 
 $\alpha$ is called the significance level, is a small number. 
 
-Under the null hypothesis, the random variable $S$ is binomial with parameters $n = 1000$ and $p = 1/2$. Using the normal approximation to the binomial and the normal tables, we find that an appropriate choice is $\xi = 31$.
+Under the null hypothesis, the random variable $S$ is binomial with parameters $n = 1000$ and $p = 1/2$. If we set $\alpha = 0.05$, then using the normal approximation to the binomial and the normal tables, we find that approximately $\xi = 31$.
 
 We summarize and generalize the essence of the example as below
 

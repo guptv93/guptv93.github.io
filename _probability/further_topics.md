@@ -3,6 +3,7 @@ layout: default
 title: Further Topics on Random Variables
 slug: further-topics
 item_num: 5
+excerpt: We have already seen how to derive the distribution of a function of a random variable $Y = g(X)$, given the distribution of $X$ itself. Here we learn how to derive distribution of the convolution of two different variables, and calculate their correlation and covariance. Covariance and Correlation play an important role in predicting value of one random variable, given another random variable (machine learning).
 ---
 
 
@@ -23,7 +24,7 @@ $$
 
 *Lecture 11*
 
-<p><!--excerpt-->Here we learn how to derive the distribution of a function of a random variable $Y = g(X)$, given the distribution of $X$ itself. We learn how to do that for discrete and continuous variables separately and then devise a common approach for both kinds using cummulative densities.<!--excerpt--></p>
+Here we learn how to derive the distribution of a function of a random variable $Y = g(X)$, given the distribution of $X$ itself. We learn how to do that for discrete and continuous variables separately and then devise a common approach for both kinds using cummulative densities. 
 
 Note that the expected value of a function of random variable can be found out directly by using the formula:
 
@@ -31,18 +32,18 @@ $$
 \expect[g(X)] = \int_{-\infty}^{+\infty}g(x)p_X(x)dx
 $$
 
-All this is needed only in case we need the full distribution. Finally we learn how to find distribution for $Z = g(X,Y)$ given the joint distribution for $X$ and $Y$.   
+What we study here is needed only in case we need the full distribution. Finally we learn how to find distribution for $Z = g(X,Y)$ given the joint distribution for $X$ and $Y$.   
 
 **Discrete Random Variable**
 
-Suppose $Y = 2X + 3$.
+Suppose $Y = aX + b$. We need to find the PMF for $Y$.
 
 $$
 \begin{align}
 p_Y(y) &= \prob(Y=y) \\
-&= \prob(2X+3 = y) \\
-&= \prob(X = \frac{y-3}{2}) \\
-&= p_X(\frac{y-3}{2})
+&= \prob(aX+b = y) \\
+&= \prob(X = \frac{y-b}{a}) \\
+&= p_X(\frac{y-b}{a})
 \end{align}
 $$
 
@@ -54,7 +55,7 @@ $$
 
 **Continuous Random Variable**
 
-Here $F$ denotes the CDF.
+Here $F$ denotes the CDF. Let $Y = aX + b$ be the derived variable.
 
 $$
 \begin{align}
@@ -65,7 +66,7 @@ F_Y(y) &= \prob(Y \leq y) \\
 \end{align}
 $$
 
-Thus, 
+Differentiating w.r.t. $y$ gives us, 
 
 $$f_Y(y) = \frac{1}{\mid a \mid}f_X(\frac{y-b}{a})$$  
 
@@ -108,11 +109,11 @@ Till now we have considered the case where $Y$ is a function of $X$ (linear / mo
 
 *Lecture 12*
 
-#### Overview
+### Overview
 
 Here we see how to calculate the PMF/PDF of $X + Y$ when $X$ and $Y$ are independent variables (continuous and discrete) and specifically when $X$ and $Y$ are independent normals ($X+Y$ is also a normal in this case). These are all special cases of the $Z=g(X,Y)$ scenario studied in Derived Distributions.  Finally we study covariance and correlation. Covariance and Correlation play an important role in predicting value of one random variable, given another random variable (machine learning).
 
-#### Sum of Independent Random Variables
+### Sum of Independent Random Variables
 
 **The Discrete Case**
 
@@ -136,13 +137,15 @@ $$
 
 The mechanics of calculating the convolution are the same for the continuous case (flip, shift, etc.)
 
-Let us now come to the specific case where $X$ and $Y$ are independent normal variables. In this case, $Z=X+Y$ is also a normal variable with mean $\mu_x + \mu_y$ and variance of $\sigma_x^2 + \sigma_y^2$. The mean and variance can also be derived easily using the Linearity of Expected Values and Linearity of Variances for Independent Variables.
+Let us now come to the specific case where $X$ and $Y$ are independent normal variables. Let $Z = X + Y$.
 
 <img src="/assets/images/probability/further_topics.assets/image-20200629131506466.png" alt="image-20200629131506466" style="zoom: 67%;" />
 
+Thus, $Z$ is also a normal variable with mean $\mu_x + \mu_y$ and variance of $\sigma_x^2 + \sigma_y^2$. The mean and variance can also be derived easily using the Linearity of Expected Values and Linearity of Variances for Independent Variables.
 
 
-#### Covariance
+
+### Covariance
 
 Covariance basically tells us if two variables $X$ and $Y$ vary in the same or different directions from their respective means. Positive Covariance indicates that $X$ and $Y$ go above/below their respective means simultaneously. Negative Covariance indicates that when $X$ goes above its mean, $Y$ goes below, and vice-versa.
 
@@ -163,12 +166,12 @@ The covariance of independent variables is always zero, but variables whose cova
 * $\cov(aX+b, Y) = a\,\cov(X,Y)$
 * Suppose $X_1$ and $X_2$ are dependent random variables. Then $\v(X_1 + X_2) = \v(X_1) + \v(X_2) + 2\cov(X_1, X_2)$  
 
-#### Correlation
+### Correlation
 
 Correlation is the dimensionless version of covariance. The sign of covariance shows if two variables move away from their respective means in the same direction or different. But it is hard to make sense of the magnitude of covariance. Correlation is defined as an alternative :  
 
 $$
-\rho(X,Y) = \expect[\frac{X-\expect[X]}{\sigma_X}\cdot\frac{Y-\expect[Y]}{\sigma_Y}] = \frac{\cov(X,Y)}{\sigma_X\sigma_Y}
+\rho(X,Y) = \expect\Bigg[\frac{X-\expect[X]}{\sigma_X}\times\frac{Y-\expect[Y]}{\sigma_Y}\Bigg] = \frac{\cov(X,Y)}{\sigma_X\sigma_Y}
 $$
 
 Notice that the correlation coefficient is the expected value of the product of z-scores of $X$ and $Y$. More on z-scores in a minute.
@@ -232,7 +235,8 @@ Refer to Lec 12.10 and 12.11 for intuition behind correlation and its practical 
 
   
 
-#### Side Note on Standard Scores
+
+### Side Note on Standard Scores
 
 Standard scores (also known as z-scores) give us a way of comparing values across different data sets even when the sets of data have different means and standard deviations. They’re a way of comparing values as if they came from the same set of data or distribution. As an example, you can use standard scores to compare each player’s performance relative to his *own personal* track record—a bit like a personal trainer would.  
 
@@ -250,11 +254,11 @@ Generally, values that are more than three standard deviations away from the mea
 
 *Lecture 13*
 
-#### Overview
+### Overview
 
 We will study how conditional expectations and conditional variances can be treated as random variables. $\expect[X \mid Y]$ is a function of $Y$ and thus is itself a random variable. Then we use that knowledge to calculate the expectation and variance of the sum of random number of independent variables. 
 
-#### Conditional Expectation as a Random Variable
+### Conditional Expectation as a Random Variable
 
 Let $g(Y)$ be a random variable that takes the value $\expect[X \mid Y=y]$, if $Y$ happens to take the value $y$.
 
@@ -274,7 +278,7 @@ $$
 
 In [Lec 13.4](https://www.youtube.com/watch?v=LVfIS8pBI6Y&list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6&index=135) we use Law of Iterated Expectations to solve the stick breaking problem. 
 
-#### Conditional Variance as a Random Variable
+### Conditional Variance as a Random Variable
 
 $\v(X \mid Y)$ is the random variable that takes the value $\v(X \mid Y=y)$, when $Y= y$.  
 
@@ -292,7 +296,7 @@ Here, $\expect[X \mid Y]$ gives the average score of a student in one particular
   total variance = average variance <b>within</b> each section + variance <b>between</b> sections
 </center>
 
-#### Sum of a Random Number of Independent Variables  
+### Sum of a Random Number of Independent Variables  
 
 Here we learn how to find the mean and variance of the sum of a random number of independent random variables. Let $N$ be a random variable denoting the number of stores visited, and let $X_1, X_2, \dots X_n$ be the money spent at each store. All the $X_i$s are independent identically distributed random variables. They are also independent of $N$. We want to derive details of the random variable $Y$ such that $$Y = \sum_iX_i$$
 

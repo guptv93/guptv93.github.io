@@ -3,6 +3,7 @@ layout: default
 title: Limit Theorems
 slug: limit-theorems
 item_num: 6
+excerpt: Probability was introduced as the measure of likelihood of an event, but we've been picturing it as the frequency of occurrence of the event. Similarly, expected value was introduced as the weighted average of all possible values, but we've been thinking of it as the average value of a variable over multiple repetitions of the experiment. This note goes into why these are all valid assumptions.
 ---
 
 $$
@@ -16,13 +17,13 @@ $$
 
 #### Overview
 
-<p><!--excerpt--> When we introduced the topic of *Expected Value*, we introduced it as the average of all possible values that a random variable can take, weighted against the probability of each value. But we've been picturing Expected Value of a random variable as the average value of the random variable during multiple repetitions of the experiment. Similarly, probability was introduced as the measure of likelihood of an event (following the axioms of non-negativity, additivity and normalization) but we've been picturing it as the frequency of occurrence of the event. This short note goes into why these are valid assumptions. For a more detailed explanation, go through Chapter 5 of *Introduction to Probability.* 2nd ed. (Bertsekas, Dimitri, and John Tsitsiklis). <!--excerpt--></p>
+When we introduced the topic of *Expected Value*, we introduced it as the average of all possible values that a random variable can take, weighted against the probability of each value. But we've been picturing Expected Value of a random variable as the average value of the random variable during multiple repetitions of the experiment. Similarly, probability was introduced as the measure of likelihood of an event (following the axioms of non-negativity, additivity and normalization) but we've been picturing it as the frequency of occurrence of the event. This short note goes into why these are valid assumptions. For a more detailed explanation, go through Chapter 5 of *Introduction to Probability.* 2nd ed. (Bertsekas, Dimitri, and John Tsitsiklis). 
 
 #### The Weak Law of Large Numbers
 
-The weak law of large numbers asserts that the sample mean of a large number of independent identically distributed ranodm variables is very close to the true mean, with high probability.
+The weak law of large numbers asserts that the sample mean of a large number of independent identically distributed random variables is very close to the actual mean of the distribution, with high probability.
 
-As in the introduction to this chapter, we consider a sequence $X_1, X_2, \dots$ of independent identically distributed random variables with mean $\mu$ and variance $\sigma^2$, and define the sample mean by
+We consider a sequence $X_1, X_2, \dots$ of independent identically distributed random variables with mean $\mu$ and variance $\sigma^2$, and define the sample mean by
 
 $$
 M_n = \frac{X_1 + \dots + X_n}{n}

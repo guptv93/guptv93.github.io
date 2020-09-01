@@ -3,6 +3,7 @@ layout: default
 title: Bayesian Inference
 slug: bayesian
 item_num: 7
+excerpt: Statistical Inference is the process of extracting information about an unknown variable or an unknown model from available data. The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions.
 ---
 
 $$
@@ -33,7 +34,7 @@ $$
 
 * Normal Distributions
 
-Knowledge of the Limit Theorems is also good to have. These laws provide a mathematical basis for the loose interpretation of an expected value $\expect[X]=\mu$ as the average of a large number of independent samples drawn from the distribution of $X$. Limit Theorems are useful for several reasons:
+Knowledge of the Limit Theorems is also good to have. These laws provide a mathematical basis for the loose interpretation of the expected value $\expect[X]$ as the average of a large number of independent samples drawn from the distribution of $X$. Limit Theorems are useful for several reasons:
 
 1. Conceptually, they provide an interpretation of Expectation (as well as Probability) in terms of a long sequence of identical independent experiments.
 2. They allow us to derive an approximate probability distribution for the sum $S_n$ of large number of i.i.d random variables $X_1,X_2,\dots,X_n$.
@@ -47,8 +48,7 @@ Statistical Inference is the process of extracting information about an unknown 
 
 Within the field of statistics there are two prominent schools of thought, with opposing views: the Bayesian and the Classical (also called Frequentist). Their fundamental difference relates to the nature of the unknown models or variables. In the Bayesian view, they are treated as random variables with known distributions. In the classical view, they are treated as deterministic quantities that happen to be unknown.
 
-<p><!--excerpt--> The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions. <!--excerpt--></p>
-We conduct an experiment, make some observation ($X$) and then try to infer the value of the random variable ($\Theta$) during the conducted experiment. We derive a posterior distribution $\prob(\Theta \mid X)$ which tells us how likely it is that $\Theta = \theta$ when the observation $X$ was made.
+The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions. We conduct an experiment, make some observation ($X$) and then try to infer the value of the random variable ($\Theta$) during the conducted experiment. We derive a posterior distribution $\prob(\Theta \mid X)$ which tells us how likely it is that $\Theta = \theta$ when the observation $X$ was made.
 
 By contrast, in Classical Inference, the unknown quantity $\theta$ is viewed as a deterministic constant that happens to be unknown. It then strives to develop an estimate of $\theta$ that has some performance guarantees (confidence interval).
 
@@ -56,9 +56,9 @@ Suppose that we are trying to measure a physical constant, say the mass of the e
 
 A classical statistician will often object to the arbitrariness of picking a particular prior. A Bayesian statistician will counter that every statistical procedure contains some hidden choices. Furthermore, in some cases, classical methods turn out to be equivalent to Bayesian ones, for a particular choice of a prior. By locating all of the assumptions in one place, in the form of a prior, the Bayesian statistician contends that these assumptions are brought to the surface and are amenable to scrutiny.
 
-#### Types of Inference Problems
+### Types of Inference Problems
 
-In **parameter estimation**, we want to generate estimates that are close to the true values of the parameters in some probabilistic sense. In this kind of problem, a model is fully specified (prior and likelihood distributions), except for an unknown, possibly multidimensional, parameter $\theta$, which we wish to estimate. This parameter can be viewed as either a random variable (Bayesian approach) or as an unknown constant (Classical approach). The usual objective is to arrive at an estimate of $\theta$ that is close to the true value in some sense. For example, using polling data, estimate the fraction of a voter population that prefers candidate A over candidate B.
+In **parameter estimation**, we want to generate estimates that are close to the true values of the parameters in some probabilistic sense. In this kind of problem, a model (likelihood distribution) is fully specified, except for an unknown, possibly multidimensional, parameter $\theta$, which we wish to estimate. This parameter can be viewed as either a random variable (Bayesian approach) or as an unknown constant (Classical approach). The usual objective is to arrive at an estimate of $\theta$ that is close to the true value in some sense. For example, using polling data, estimate the fraction of a voter population that prefers candidate A over candidate B.
 
 In a **binary hypothesis testing** problem, we start with two hypotheses and use the available data to decide which of the two is true. For example, the Airplane-Radar example discussed earlier, where we have to infer whether an airplane was present or not, given the radar reading.
 
@@ -69,7 +69,7 @@ In a **binary hypothesis testing** problem, we start with two hypotheses and use
 
 Here, we study the Bayes’ Rule in detail. We learn how to calculate the Posterior distribution and how to summarize the distribution using one number: either the most probable value (where posterior is highest) or the expected value (mean value).  
 
-#### Bayesian Framework
+### Bayesian Framework
 
 In Bayesian Framework, the unknown quantity is modelled as a random variable, denoted by $\Theta$. It has a prior distribution $\prob_\Theta$. We aim to extract information about $\Theta$, based on another random variable observed during the experiment $X=(X_1, X_2, \dots, X_n)$. This random variable is called **observation, measurement** or an **observation vector**.
 
@@ -97,9 +97,9 @@ $$
 
 $d(n,k)$ is the Normalizing Constant (doesn't vary with $\Theta$). The distribution given by the above formula is called **Beta distribution** with parameters $(k+1, n-k +1)$. Notice that if we start with a Prior that is a Beta Distribution, then the Posterior still belongs to the Beta family. Priors of this sort are known as Conjugate Priors.  
 
-#### Point Estimates
+### Point Estimates
 
-Many a times we are not interested in the posterior distribution of $\Theta$ over its entire range. We just need a point estimate for $\Theta$ given the value of $X$. The point estimator takes a specific value given a value of $X$ based on the function $\prob(\Theta \mid X)$. Therefore, the point estimator itself is a random variable denoted by $\hat{\Theta}$. Any value that the point estimator takes is called an estimate and is denoted by $\hat{\theta}$.
+Many a times we are not interested in the posterior distribution of $\Theta$ over its entire range. We just need a point estimate for $\Theta$ given the value of $X$. Given a value of $X$ (say $x$), the point estimator takes a specific value based on the function $\prob(\Theta \mid X = x)$, . Therefore, the point estimator itself is a random variable denoted by $\hat{\Theta}$. Any value that the point estimator takes is called an estimate and is denoted by $\hat{\theta}$.
 
 The value of $\hat{\theta}$ is to be determined by applying some function $g$ to the observation $x$, resulting in $\hat{\theta} = g(x)$. The random variable $\hat{\Theta} = g(X)$ is called an estimator, and its realized value equals $g(x)$ whenever the random variable $X$ takes the value $x$. As explained, the reason that $\hat{\Theta}$ is a random variable is that the outcome of the estimation procedure depends on the random value of the observation.
 
@@ -118,12 +118,22 @@ $$
 It is also called the least mean squares (LMS) estimator because it has an important property: it minimizes the Mean Squared Error over all estimators.
 
 $$
-\expect[(\Theta - \hat{\theta})^2] = \v(\Theta - \hat{\theta}) + (\expect[\Theta - \hat{\theta}])^2 = \v(\Theta) + (\expect[\Theta - \hat{\theta}])^2
+\begin{align}
+\expect[(\Theta - \hat{\theta})^2] &= \v(\Theta - \hat{\theta}) + (\expect[\Theta - \hat{\theta}])^2 \\
+ &= \v(\Theta) + (\expect[\Theta - \hat{\theta}])^2 \\
+ &= \v(\Theta) + (\expect[\Theta] - \hat{\theta}])^2 \\
+\end{align}
+$$
+
+The above quantity is minimized when $\hat{\theta} = \expect[\Theta]$. If we substitute general probabilities with posterior probabilities, then the error minimizer is 
+
+$$
+\hat{\theta} = \expect[\Theta \mid X]
 $$
 
 If the posterior distribution is symmetric around its (conditional) mean and unimodal (i.e., has a single maximum), the maximum occurs at the mean. Then, the MAP estimator coincides with the conditional expectation estimator.
 
-#### Hypothesis Testing
+### Hypothesis Testing
 
 In a hypothesis testing problem, $\Theta$ takes one of $m$ values, $\theta_1,\theta_2,\dots,\theta_m$, where m is usually a small integer; often $m = 2$, in which case we are dealing with a binary hypothesis testing problem. We refer to the event ${\Theta = \theta_i}$, as the $i$th hypothesis and denote it by $H_i$.
 
@@ -145,7 +155,7 @@ $$
 
 where $X$ is the observation variable, $W$ is the noise variable and $\Theta$ is the unknown variable (to be inferred). $X$ is a linear function of independent normal variables $W$ and $\Theta$. Hence, $X$ is itself a normal variable.
 
-#### Recognizing Normal Distribution
+### Recognizing Normal Distribution
 
 ![normal_fn](/assets/images/probability/bayesian_inference.assets/normal_fn.png)
 
@@ -153,7 +163,7 @@ All functions of the above form are normal distributions. You don’t really nee
 
 The above formulation also tells us that product of normal probabilities is also normal.  
 
-#### Estimating Normal RV in Normal Noise
+### Estimating Normal RV in Normal Noise
 
 **Single Unknown, Single Observation**
 
@@ -227,7 +237,7 @@ We can see here that the estimate is a weighted average of all the $x_i$(s), wei
 
 **Multiple Unknowns, Multiple Observations**
 
-In this model, $X$ and $\Theta$ are both  multi-dimensional vectors. We study this case using the Trajectory Example. We know that the trajectory of a projectile is parabolic with time. Therefore, the relation between observations $X_i$(s), and time $t_i$ is given as follows:
+In this model, $X$ and $\Theta$ are both  multi-dimensional vectors. We study this case using the Trajectory Example. We know that the trajectory of a projectile is parabolic with time. Therefore, the relation between observations (height measurements) $X_i$(s), and time $t_i$ is given as follows:
 
 $$
 X_i = \Theta_0 + \Theta_1t_i + \Theta_2t_i^2 + W_i
@@ -242,9 +252,10 @@ $$
 W_i \sim N(0, \sigma^2)
 $$
 
-We would now like to estimate the parameters $\Theta_j$(s) based on our observations $X_i$(s). 
+We would now like to estimate the parameters $\Theta_j$(s) based on our observations $X_i$(s). But before that let us try to understand better what we are trying to achieve here.  
 
-The MAP Estimator for $\Theta$ would be that tuple $(\theta_1,\theta_2,\theta_3)$ for which $\theta_0 + \theta_1t_i + \theta_2t_i^2$ is closest to the observed values, because $W_i = 0$ with maximum probability and probability decreases as $W_i$ deviates more and more from $0$. Thus, $f_{X_i \mid \Theta}$ will be greater when $X_i$ falls closer to the estimated trajectory. MAP Estimate has the highest probability which means that for MAP trajectory, the $X_i$s are as close to the curve as possible. 
+From the main equation above, we know that $f_{X_i \mid \Theta} \sim N(\theta_0 + \theta_1t_i + \theta_2t_i^2, \sigma)$. To increase the likelihood of observations, the observations need to be as close to the estimated trajectory (given by $\theta_0 + \theta_1t_i + \theta_2t_i^2$) as possible. During MAP estimation, we try to estimate an unknown variable so that the likelihood of observations is high while also keeping the unknown variable close to its prior distribution. Thus, our aim here is to come up with a $\hat{\Theta}$, such that the estimated trajectory is close to the observations, while keeping the estimate reasonably close to its prior distribution.  
+
 
 A key difference between the Trajectory Problem and "Single Unknown, Multiple Observations" scenario is that here all the $X_i$(s) are not identically distributed. In the previous scenario $f_{X_i \mid \Theta}$ was the same for all $i$(s). Here the mean for all such $f_{X_i \mid \Theta}$ is different, and depends on the time of the observation. 
 
@@ -258,7 +269,7 @@ In the above derivation we have used the fact that given a particular value of $
 
 We observe that the posterior distribution is a normal function (product of multiple normal distributions). To get the MAP estimate (same as LMS) we need to find the peak of the normal curve. We do this by taking partial derivates with respect to $\theta_0, \theta_1, \theta_2$ and equating them to $0$. Thus we have three equations and three unknowns.  
 
-The Trajectory Estimation Problem gives a glimpse into a large field that deals with **Linear Normal Models**. Here, for each problem we assume the existence of some underlying independent normal random variables and the observations $X_i$ and the unknown parameters $\Theta_j$ are linear functions of these underlying variables. $X_i$ and $\Theta_j$ are also normal, because linear functions of normal variables are normal too. Problems of this kind occur very frequently in practice. The Posterior is always of the form :
+The Trajectory Estimation Problem gives a glimpse into a large field that deals with **Linear Normal Models**. Here, for each problem we assume the existence of some underlying independent normal random variables and the observations $X_i$ and the unknown parameters $\Theta_j$ are linear functions of these underlying variables. $X_i$ and $\Theta_j$ are also normal, because linear functions of independent normal variables are normal too. Problems of this kind occur very frequently in practice. The Posterior is always of the form :
 
 $$
  f_{\Theta | X}(\theta | x) = c(x)\mathrm{exp\{-quadratic(\theta_1,\theta_2,\dots)\}}
@@ -280,7 +291,7 @@ Therefore, carrying out inference under this model is given the name **linear re
 
 So far we've seen two ways of estimating a parameter : maximum aposteriori estimation and conditional expectation. These were arbitrary choices. Here we will first decide upon a performance criterion and then find an estimator that is optimal with respect to that criterion. Our criterion will be the expected value of squared estimation error. It will turn out that the Conditional Expectation is the optimal estimator for this criterion. That is why we've been calling it Least Mean Squares Estimator all along.
 
-#### Warm Up
+### Warm Up
 
 Let us first consider the case where we don't have any observation. Therefore we are trying to estimate $\Theta$ based on the prior distribution (the posterior is the same as the prior). Let us say the prior distibution is uniform in the interval $[4, 10]$. In this case, the MAP and Conditional Expectation estimators are given as follows:
 
@@ -305,21 +316,23 @@ $$
 
 We can't reduce the variance of the random variable $\Theta$. We can only reduce the second term by setting $\hat{\theta} = \expect[\Theta]$.
 
-#### Estimation with Observation
+### Estimation with Observation
 
 Here again we want to find a point estimate $\hat{\theta}$ for the unknown variable $\Theta$ with prior $\prob_{\Theta}(\theta)$. But in this case, we also have an observation $X = x$. In the warm-up example, we wanted a point estimate that would minimize the squared estimation error, given by $\expect[(\Theta - \hat{\theta})^2]$. Here we would want to minimize the conditional mean squared error given by
 
 $$
 \expect[(\Theta -\hat{\theta})^2 \mid X = x]
 $$
+
 As in the warm-up example, the solution is given by the expected value of $\Theta$, but now in the conditional universe.
+
 $$
 \hat{\theta} = \expect[\Theta \mid X = x]
 $$
 
 ![LMS Estimation](/assets/images/probability/bayesian_inference.assets/image-20200703135229153.png)
 
-#### Performance of the LMS Estimator
+### Performance of the LMS Estimator
 
 Given an observation $X=x$, we know that the optimal estimator for minimizing the criterion $\expect[(\Theta -\hat{\theta})^2 \mid X = x]$ is given by $\expect[\Theta \mid X =x ]$. We haven't explicitly talked about the performance of our estimator with respect to our chosen criterion. 
 
@@ -329,9 +342,8 @@ $$
 \textrm{MSE} = \expect[(\Theta -\expect[\Theta \mid X = x])^2 \mid X = x] = \v(\Theta \mid X = x)
 $$
 
-Expected performance of the design (over all possible values of $X$):
 
-In this case the estimator is given as $\hat{\Theta} = \expect[\Theta \mid X]$
+What is the expected performance over all possible values of $X$? In this case the estimator is given as $\hat{\Theta} = \expect[\Theta \mid X]$
 
 $$
 \begin{align}
@@ -341,7 +353,7 @@ $$
 \end{align}
 $$
 
-#### Challenges
+### Challenges
 
 What if we have multiple observations? In this case the estimator will still be of a similar form:
 
@@ -359,9 +371,9 @@ However, it is not always this easy to compute/analyze the LMS estimator. Why?
 
 We have to first find out the distribution $f_{\Theta \mid X}$ (before finding out the conditional expectation). We do this using Bayes' Rule. This can be terribly hard to obtain because of the following reasons:
 
-* Many a times we don't know the correct model, $f_{X \mid \Theta}$ especially when $X$ and $\Theta$ are multi-dimensional.
+* Many a times we don't know the correct model for $f_{X \mid \Theta}$ especially when $X$ and $\Theta$ are multi-dimensional.
 * Even if you have the correct likelihood model, $f_X$ (the probability of data) is tremendously hard to obtain (theoretically and practically).
-* Finally, even if you can get your hands on the posterior of $\Theta$, $f_{\Theta \mid X}$, the conditional expectation of $\Theta_j$ will require a multi-dimensional integral.
+* Finally, even if you can get your hands on the posterior of $\Theta$ ( $f_{\Theta \mid X}$ ), the conditional expectation of $\Theta_j$ will require a multi-dimensional integral.
 
 $$
 \expect[\Theta_j \mid X = x] = \int\Theta_jf_{\Theta \mid X}d\Theta = \int\int\int\Theta_jf_{\Theta \mid X}d\Theta_1d\Theta_2d\Theta_3\dots
@@ -395,7 +407,7 @@ $$
 \hat{\Theta}_{LLMS} = \hat{\Theta}_{LMS} = \expect[\Theta \mid X] = a_1 X_1 +\dots+a_nX_n + b
 $$
 
-#### Single Observation
+### Single Observation
 
 The estimator is of the form:
 
@@ -409,7 +421,7 @@ We are interested in finding $a$ and $b$ that minimize the mean squared estimati
 
 The formula for the linear LMS estimator only involves the means, variances, and covariance of $\Theta$ and $X$. Furthermore, it has an intuitive interpretation. The estimator starts with the baseline estimate $\expect[\Theta]$, which it then adjusts by taking into account the value of $X - \expect[X]$. Suppose $\textrm{cov}(\Theta, X)$ is positive. This means that the estimator should increase in proportion to $X - \expect[X]$. The LLMS estimator equation shows that the proportionality constant is $a = \frac{\textrm{cov}(\Theta, X)}{\v(X)}$. If $\rho = 0$, then $X$ and $\Theta$ are not correlated, so a given value of $X$ should not affect the value of the estimator for $\Theta$.
 
-#### Multiple Observations
+### Multiple Observations
 
 In this case $\Theta$ is the unknown and $X = (X_1, \dots, X_n)$ are the observations. Our estimator is of the form $\hat{\Theta} = a_1 X_1 + \dots + a_n X_n + b$ and we have to find value $a_1, \dots, a_n, b$ such that the mean square error of estimation is the lowest (amongst all linear estimators), i.e.
 
@@ -419,10 +431,10 @@ $$
 
 When we expand the equation above (using linearity of expectations) and take derivatives with respect to $a_1, \dots, a_n, b$, we get a system of linear equations in $a_i$(s) and $b$. The good part about this is that the solution only depends on the means, variances and covariances of the observations and unknown parameters. We don't need to know or deal with full probability distributions. 
 
-#### Linear Estimation and Normal Models
+### Linear Estimation and Normal Models
 
 The linear LMS estimator is generally different from and, therefore, inferior to the LMS estimator $\expect[\Theta \mid X_1, \dots, X_n]$. However, if the LMS estimator happens to be linear in the observations $X_1 , \dots, X_n$, then it is also the linear LMS estimator, i.e. the two estimators coincide.
 
 An important example where this occurs is the estimation of a normal ran­dom variable $\Theta$ on the basis of observations $X_i = \Theta + W_i$, where the $W_i$ are independent zero mean normal noise terms, indepedent of $\Theta$. We have seen this example in Lecture 15 (section on inference with single unknown and multiple observations), where we found that the conditional expectation, $\expect[\Theta \mid X = (x_1, \dots, x_n)]$, is linear in the observations (average of the observations, weighted by the inverse of the variance of the observation). If we calculate the Linear LMS Estimator using the technique mentioned above, we get the same estimator. Thus, the LMS and the linear LMS estimators coincide. This is a manifestation of a property that can be shown to hold more generally: if $\Theta, X_1, \dots, X_n$ are all linear functions of a collection of independent normal variables, then the LMS and Linear LMS estimators coincide. They also coincide with the MAP estimator, since the normal distribution is symmetric and unimodal.
 
-The above discussion leads to an interesting interpretation of linear LMS estimation: the estimator is the same as the one that would have been obtained if we were to pretend that the random variables involved were normal, with the given means, variances, and covariances. Thus, there are two alternative perspectives on linear LMS estimation: either as a computational shortcut (avoid the evaluation of a possibly complicated formula for $\expect[\Theta \mid X]$, or as a model simplification (replace less tractable distributions by normal ones).
+The above discussion leads to an interesting interpretation of linear LMS estimation: the estimator is the same as the one that would have been obtained if we were to pretend that the random variables involved were normal, with the given means, variances, and covariances. Thus, there are two alternative perspectives on linear LMS estimation: either as a computational shortcut (avoid the evaluation of a possibly complicated formula for $\expect[\Theta \mid X]$), or as a model simplification (replace less tractable distributions by normal ones).

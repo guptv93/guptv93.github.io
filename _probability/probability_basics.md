@@ -3,6 +3,7 @@ layout: default
 title: Probability Basics
 slug: basics
 item_num: 1
+excerpt: We go over the basics of probabilistic modelling, including the three probability axioms. Then we discuss conditional probability and Bayes' theorem. We end with the topic of Independence.
 ---
 
 $$
@@ -16,7 +17,7 @@ $$
 
 ## Basics
 
-<p><!--excerpt--> A probabilistic model is a mathematical description of an uncertain situation. Every probablistic model involves an underlying process, called the **experiment**, that produces exactly one of several possible **outcomes**. The set of all possible outcomes is known as the **sample space** ($\Omega$) of the experiment. A subset of the sample space, that is, a collection of possible outcomes, is called an **event**. <!--excerpt--></p>
+<!--excerpt--> A probabilistic model is a mathematical description of an uncertain situation. Every probablistic model involves an underlying process, called the **experiment**, that produces exactly one of several possible **outcomes**. The set of all possible outcomes is known as the **sample space** ($\Omega$) of the experiment. A subset of the sample space, that is, a collection of possible outcomes, is called an **event**. <!--excerpt-->
 
 Probabilistic modeling can usually be broken down into three basic steps:  
 
@@ -38,7 +39,7 @@ $$
 \prob(\{s_1, s_2, s_3, \dots, s_k\}) = \prob(\{s_1\}) + \prob(\{s_2\}) + \prob(\{s_3\}) + \dots + \prob(\{s_k\})
 $$
 
-If the probability of all outcomes is the same then 
+If the probability of all outcomes (in the entire sample space) is the same then 
 
 $$
 \prob(A)= \frac{(\textrm{no. of elements in }A)}{n}
@@ -81,11 +82,11 @@ Venn diagrams aren’t always the best way of visualizing conditional probabilit
 ![ptree](/assets/images/probability/probability_basics.assets/ptree.jpg)
 
 
+
 ## Methods of Calculating Probabilities
 
 1. The **counting method**, which applies to the case where the number of possible outcomes is finite and all outcomes are equally likely. To calculate the probability of an event, we count the number of elements of the event and divide by the number of elements in the sample space. Some useful results, for counting the number of possible outcomes, are as follows:
-
-  ![counting](/assets/images/probability/probability_basics.assets/counting.jpg)
+![counting](/assets/images/probability/probability_basics.assets/counting.jpg)
 
 2. The **sequential method**, where we model the problem as a tree. Suitable conditional probabilities are specified along the branches of the probability tree. The probability of various events are then obtained by multiplying conditional probabilities along the corresponding paths of the tree, using the product rule. 
 
@@ -98,9 +99,10 @@ $$
 This is called the **Sum Rule** in Probability Theory.
 
 
+
 ## Bayes' Theorem of Inference
 
-Bayes’ Theorem is derived directly from the definition of Conditional Probability. To get a background on Bayesian Inference go through [Lec 2.5](https://www.youtube.com/watch?time_continue=2&v=uL31gpFdarc). Basically we have an event $B$ (which can be recorded/measured, like generation of alarm by a radar). Based on that, we try to infer which condition was true when $B$ happened, $A_1$ (aircraft was present), $A_2$ (goose was present), $A_3$ (the sky was clear) and so on.  Therefore we try to calculate $\prob(A_1 \mid B)$, $\prob(A_2\mid B)$, etc.
+Bayes’ Theorem is derived directly from the definition of Conditional Probability. To get a background on Bayesian Inference go through [Lec 2.5](https://www.youtube.com/watch?time_continue=2&v=uL31gpFdarc). Basically we have an event $B$ (which can be recorded/measured, like generation of alarm by a radar). Based on that, we try to infer which condition was true when $B$ happened: $A_1$ (aircraft was present), $A_2$ (goose was present), $A_3$ (the sky was clear) and so on.  Therefore we try to calculate $\prob(A_1 \mid B)$, $\prob(A_2\mid B)$, etc.
 
 Bayes’ Theorem says that:
 
@@ -117,19 +119,26 @@ Here,
 
 * $\prob(B \mid A_i)$ is the **likelihood**.  It is the likelihood of **data** (observable/recordable event) when $A_i$ event has occurred.  
 
-* $\prob(A_i \mid B)$ is called the **posterior**, because by this time we have already observed the event and have come to know that the *data* event has already occurred. We are trying to find the probability of a thing ($A_i$) having happened back in time, posterior probability.  
+* $\prob(A_i \mid B)$ is called the **posterior**, because by this time the *data* event has already occurred. We are trying to find the probability of the event $A_i$ having happened back in time; posterior probability.  
 
-* $\prob(B)$ or $\prob(\text{data})$ doesn’t have a name in general. It is the probability that data event has taken place. Generally, data event has some observable/measurable characteristics that helps us calculate its probability of occurrence.  
+* $\prob(B)$ or $\prob(\text{data})$ doesn’t have a name in general. It is the probability of occurrence of the data event. Generally, data event has some observable/measurable characteristics that helps us calculate its probability of occurrence.  
+
 
 
 ## Independence
 
-It intuitively means that event $A$ taking (or not taking) place doesn’t give us any information about whether another event $B$ will take place (or not). Mathematically, it is written as
+We have introduced the conditional probability $\prob(A \mid B)$ to capture the partial information that event $B$ provides about event $A$. An interesting and important case arises when the occurrence of $B$ provides no such information and does not alter the probability that $A$ has occurred, i.e., 
+
+$$
+\prob(A \mid B) = \prob(A)
+$$
+
+When we substitute the above equation into the formula for conditional probability $\prob(A \mid B) = \frac{\prob(A \cap B)}{\prob(B)}$, we get
 
 $$
 \prob(A \cap B) = \prob(A) \times \prob(B)
 $$
 
-Also written as $\prob(A \mid B) = \prob(A)$ using conditional probabilities. Remember that if two events are independent, they aren’t necessarily conditionally independent and vice-versa.
+Because the above formula is symmetric in $A$ and $B$, we can use it as an alternate definition for independence. Two events are independent if their joint probability (probability of their intersection) is equal to the product of their individual probabilities.
 
-Also, if events $A$, $B$ and $C$ are pairwise independent, it doesn’t mean that they are actually independent i.e. $\prob(A \cap B \cap C)$ is not necessarily equal to $\prob(A) \times \prob(B) \times \prob(C)$, if $A$, $B$ and $C$ are pairwise independent.
+Remember that if two events are independent, they aren’t necessarily conditionally independent and vice-versa. Also, if events $A$, $B$ and $C$ are pairwise independent, it doesn’t mean that they are actually independent i.e. $\prob(A \cap B \cap C)$ is not necessarily equal to $\prob(A) \times \prob(B) \times \prob(C)$, if $A$, $B$ and $C$ are pairwise independent.

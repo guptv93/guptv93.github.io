@@ -3,6 +3,7 @@ layout: default
 title: Discrete Random Variables
 slug: discrete-variables
 item_num: 2
+excerpt: In this note we go over what Discrete Random Variables are, and how we calculate their Probability Mass Functions. We look at a few common types of discrete variables. Finally we discuss Expectation, Variation, Conditional Probabilities and Independence of discrete variables.
 ---
 
 $$
@@ -20,13 +21,13 @@ $$
 ## PMF; Expected Values and their Properties 
 *Lecture 05*
 
-#### Overview
+### Overview
 
-<p><!--excerpt-->In this section we go over what Discrete Random Variables are, and how we calculate their Probability Mass Functions. Then we look at a few common types of Discrete Random Variables, specifically Uniform RV, Bernoulli RV, Binomial RV and Geometric RV. Finally we learn about Expected Values and their properties.<!--excerpt--></p>
+In this section we go over what Discrete Random Variables are, and how we calculate their Probability Mass Functions. Then we look at a few common types of Discrete Random Variables, specifically Uniform, Bernoulli, Binomial and Geometric Random Variables. Finally we learn about Expected Values and their properties.
 
-#### Random Variable
+### Random Variable
 
-A Random Variable (RV) associates a value (a number) to every possible outcome of an experiment. Mathematically, it is a function from the sample space $\Omega$ to the set of real numbers $\R$. It can take discrete or continuous values. We can have several random variables defined on the same sample space. Basically, there can be multiple ways of mapping the outcomes of *the same experiment* to the number line. All these different ways constitute different random variables. A function of one or several random variables is also a random variable , like $X + Y$.
+A Random Variable (RV) associates a value (a number) to every possible outcome of an experiment. Mathematically, it is a function from the sample space $\Omega$ to the set of real numbers $\R$. It can take discrete or continuous values. We can have several random variables defined on the same sample space. That is, there can be multiple ways of mapping the outcomes of *the same experiment* to the number line. All these different ways constitute different random variables. A function of one or several random variables is also a random variable , like $X + Y$.
 
 Probability Mass Function (PMF) is the “probability law” or “probability distribution” of a discrete random variable.  
 
@@ -38,7 +39,7 @@ $$
 
 * *Bernoulli Random Variable* models a trial that results in success/failure. It is used to indicate whether an event $A$ occurred or not. Therefore, it is also called an indicator random variable.  
 
-* *Binomial Random Variable* represents the total number of heads when a coin is flipped multiple times with probability $p$ of getting heads in each toss. If $X$ is a Binomail RV and $k$ is the number of heads achieved in $n$ coin tosses, then
+* *Binomial Random Variable* represents the total number of heads when a coin is flipped multiple times with probability $p$ of getting heads in each toss. If $X$ is a binomial variable and $k$ is the number of heads achieved in $n$ coin tosses, then
 
 $$
 p_X(k) = \Comb{n}{k} \,p^k (1-p)^{n-k}
@@ -50,20 +51,27 @@ $$
 p_X(k) = (1-p)^{k-1} p
 $$
 
-​		What is the probability that $X > k$? For this all the first $k$ tosses should be tails. Thus,
+<ul class="md-indent">
+  <li>
+  What is the probability that $X > k$? For this all the first $k$ tosses should be tails. Thus,
+  </li>
+</ul>
 
 $$
 P(X > k) = (1-p)^k
 $$
 
-#### Expected Value
+### Expected Value
+<p>
+<center> Expectation of a Random Variable is the weighted average of all possible values of that random variable, where the weights are the probabilities of each value. </center>
+<p></p>
+<center><b>Alternatively</b></center>
+<p></p>
+<center> Expectation of a Random Variable is the average value of a random variable in large number of independent repetitions of the experiment.</center>
+</p>
 
->Expectation of a Random Variable is the weighted average of all possible values of that random variable, where the weights are the probabilities of each value.  
 
-Another way of defining Expected Value is as follows:  
->Expectation of a Random Variable is the average value of a random variable in large number of independent repetitions of the experiment.  
-
-How do both the definitions lead to the same measure? Is it necessary that the frequencies in a large population will follow the probability distribution? Is the probability (likelihood) of an observation the same as its frequency when the experiment is conducted a large number of times?  The intuition is easy to catch if we look at probabilities as frequencies. The mathematical proof is given by the *Weak Law of Large Numbers*.  
+How do both the definitions lead to the same measure? Is it necessary that the frequencies in a large population will follow the probability distribution? Is the probability (likelihood) of an observation the same as its frequency when the experiment is conducted a large number of times?  The intuition is easy to catch if we look at probabilities as frequencies. The mathematical proof is given by the *Weak Law of Large Numbers* (studied later in the note on Limit Theorems).  
 
 Consider an experiment where we randomly pick a student in a classroom of $n$ students. The weight of the $i^{th}$ student is $x_i$. If the variable $X$ is defined as the weight of the selected student, then $p_X(x_i) = \frac{1}{n}$ and the expected value is
 
@@ -104,13 +112,13 @@ $$
 
 *Lecture 06*  
 
-#### Variance
+### Variance
 
 Expected Value gives an average (central tendency) of the probability distribution. But how do you measure the spread of the distribution?  
 
 One way to measure the spread is the range (highest possible value - lowest possible value). But this is severely affected by outliers. Thus, other measures like Quartiles and Percentiles are often used. Percentiles give us the flexibility of discounting as many outliers as required. However these measures still don't tell us how the observations are distributed around the mean value. How do you measure how close are the actual observations to the Expected Value? The solution is given by **Variance**.  
 
-Variance measures the average distance of a Random Variable from the Expected Value (over multiple trials). It quantifies the amount of randomness that is present. Together with EV, the variance summarizes crisply the properties of a PMF.
+Variance measures the average squared distance of a Random Variable from the Expected Value (over multiple trials). It quantifies the amount of randomness that is present. Together with the expected value, the variance summarizes crisply the properties of a PMF.
 
 $$
 \v(X) = \expect[(X-\mu)^2] \\  
@@ -139,9 +147,9 @@ $$
 
 * If $X$ is a Bernoulli RV with probability $p$ of success, then $\expect[X] = p$ and $\v(X) = p(1-p)$  
 
-#### Conditioning (on Events)
+### Conditioning (on Events)
 
-After variance we discuss conditional PMF, conditional Expected Value and conditional Variance (all conditioned on any event $A$). All the formulas remain the same, but now we use conditional probabilities instead of absolute probabilities.
+Here we discuss conditional PMF, conditional expected value and conditional variance (all conditioned on any event $A$). All the formulas remain the same, but now we use conditional probabilities instead of absolute probabilities.
 
 ![image-20200626174130351](/assets/images/probability/discrete_random_variables.assets/image-20200626174130351.png)
 
@@ -153,7 +161,7 @@ $$
 \expect[X] = \prob(A_1)\expect[X \mid A_1] + \dots + \prob(A_n)\expect[X \mid A_n]
 $$
 
-#### Memorylessness of Geometric Variable
+### Memorylessness of Geometric Variable
 
 Let $X$ be a geometric random variable denoting the first heads in a series of coin tosses. Suppose the information that the first coin toss is tails ($X > 1$) is given. Then the remaining coin tosses (till the first heads) is given by the random variable $Y = X - 1$. Memorylessness Property states that the number of *remaining* coin tosses till the first heads, conditioned on tails in the first toss, is Geometric, with parameter $p$. For example, suppose the probability of getting the first head on third toss is $k$. If we get a tail on the first toss, then (given this fact) the probability of getting a head on the overall fourth toss (third remaining toss) is also $k$.  
 
@@ -176,7 +184,7 @@ $$
 \end{align}
 $$
 
-#### Joint PMF
+### Joint PMF
 
 Joint PMF of two different random variables $X$ and $Y$ is given by:
 
@@ -209,8 +217,8 @@ $$
 \begin{align}
 X &= X_1 + X_2 + \dots + X_n \\
 \implies \expect[X] &= \expect[X_1] + \expect[X_2] + \dots +\expect[X_n] \\
-\implies \expect[X] &= p + p + \dots + p \\
-\implies \expect[X] &= np \\
+&= p + p + \dots + p \\
+&= np \\
 \end{align}
 $$
 
@@ -218,19 +226,19 @@ $$
 ## Conditioning on other RVs; Independence of RVs; Hat Problem 
 *Lecture 07*  
 
-#### Overview
+### Overview
 
-In this part, we study conditioning of random variables on other random variables (as opposed to events, which we studied in last lecture). This is mainly just new notations and very straight-forward extension of concepts of joint PMF and conditionality. Then we introduce independence of random variables. We study  the properties of expectations and variances for independent random variables. Finally, we study the Hat Problem and try to solve it using independence of random variables.
+In this part, we study conditioning of random variables on other random variables (as opposed to events, which we studied in last lecture). This is mainly just new notations and very straight-forward extension of concepts of joint PMF and conditionality. Then we introduce independence of random variables. We study  the properties of expectations and variances for independent random variables. Finally, we study the Hat Problem and try to solve it using the tools we've developed so far.
 
-#### Conditioning (on Random Variables)
+### Conditioning (on Random Variables)
 
-We have studied conditional probability of a random variable given an event (in the previous lecture). We also studies the Joint PMF of two different random variables. Now we study conditional probability of a random variable given value of another random variable. 
+We have studied conditional probability of a random variable given an event (in the previous lecture). We also studied the Joint PMF of two different random variables. Now we study conditional probability of a random variable given value of another random variable. 
 
 $$
 p_{X \mid Y}(x \mid y) = \frac{p_{X,Y}(x,y)}{p_Y(y)}
 $$
 
-Other conditional identities also translate as in for PMF conditioned on another random variable:
+Most conditional identities translate as is for PMF conditioned on another random variable:
 
 $$
 \begin{align}
@@ -239,9 +247,9 @@ $$
 \end{align}
 $$
 
-#### Independent Random Variables
+### Independent Random Variables
 
-Two random variables $X$ and $Y$ are said to be independent if 
+Two random variables $X$ and $Y$ are said to be independent if and only if
 
 $$
 \begin{align}
@@ -249,7 +257,7 @@ p_{X, Y}(x, y) &= p_X(x)p_Y(y) &\forall x, y \\
 \end{align}
 $$
 
-Equivalently, 
+Equivalently, we can say that 
 
 $$
 \begin{align}
@@ -259,7 +267,7 @@ p_{Y \mid X}(y \mid x) &= p_Y(y) & \forall x, y\\
 \end{align}
 $$
 
-if $X$ and $Y$ are independent random variables.
+if and only if $X$ and $Y$ are independent random variables.
 
 **Properties of Independent Random Variables:**
 
@@ -298,12 +306,14 @@ The second property can be used to derive the variance of a Binomial Random Vari
 $$
 X = X_1 + X_2 + \dots + X_n
 $$
+
 Now, $\v(X_i) = p(1-p)$. Therefore, given that all $X_i$(s) are independent of each other 
+
 $$
 \v(X) = \v(X_1) + \dots + \v(X_n) = np(1-p)
 $$
 
-#### The Hat Problem
+### The Hat Problem
 
 In the hat problem, $n$ people throw their hats in a box and then pick one at random. At the time of retrieving hats, all permutations of the hats are equally likely. Let $X$ be a random variable, denoting the number of people who get their own hat back. We want to find the $\expect[X]$.
 
