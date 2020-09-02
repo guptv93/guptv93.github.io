@@ -251,7 +251,7 @@ Thus, the probability of a used light bulb working for $x$ time is the same as t
 
 ### Joint PDFs of Multiple RVs
 
-$f_{X,Y}(a,b)$ represents the probability that the random variables $X$ and $Y$, associated with the same experiment, take values very very close to $a$ and $b$ per unit area.
+$f_{X,Y}(a,b)$ represents the "probability per unit area" of random variables $(X, Y)$ taking values in the vicinity of $(a, b)$.
 
 $$
 \prob(a < X < a+\epsilon , b < Y < b+\delta) = f_{X,Y}(a,b) \cdot \epsilon \cdot \delta

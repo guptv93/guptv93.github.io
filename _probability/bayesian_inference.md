@@ -58,7 +58,7 @@ A classical statistician will often object to the arbitrariness of picking a par
 
 ### Types of Inference Problems
 
-In **parameter estimation**, we want to generate estimates that are close to the true values of the parameters in some probabilistic sense. In this kind of problem, a model (likelihood distribution) is fully specified, except for an unknown, possibly multidimensional, parameter $\theta$, which we wish to estimate. This parameter can be viewed as either a random variable (Bayesian approach) or as an unknown constant (Classical approach). The usual objective is to arrive at an estimate of $\theta$ that is close to the true value in some sense. For example, using polling data, estimate the fraction of a voter population that prefers candidate A over candidate B.
+In **parameter estimation**, we want to generate estimates that are close to the true values of the parameters in some probabilistic sense. In this kind of problem, a model is fully specified, except for an unknown, possibly multidimensional, parameter $\theta$, which we wish to estimate. This parameter can be viewed as either a random variable (Bayesian approach) or as an unknown constant (Classical approach). The usual objective is to arrive at an estimate of $\theta$ that is close to the true value in some sense. For example, using polling data, estimate the fraction of a voter population that prefers candidate A over candidate B.
 
 In a **binary hypothesis testing** problem, we start with two hypotheses and use the available data to decide which of the two is true. For example, the Airplane-Radar example discussed earlier, where we have to infer whether an airplane was present or not, given the radar reading.
 

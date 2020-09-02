@@ -17,7 +17,7 @@ $$
 
 ## Basics
 
-<!--excerpt--> A probabilistic model is a mathematical description of an uncertain situation. Every probablistic model involves an underlying process, called the **experiment**, that produces exactly one of several possible **outcomes**. The set of all possible outcomes is known as the **sample space** ($\Omega$) of the experiment. A subset of the sample space, that is, a collection of possible outcomes, is called an **event**. <!--excerpt-->
+A probabilistic model is a mathematical description of an uncertain situation. Every probablistic model involves an underlying process, called the **experiment**, that produces exactly one of several possible **outcomes**. The set of all possible outcomes is known as the **sample space** ($\Omega$) of the experiment. A subset of the sample space, that is, a collection of possible outcomes, is called an **event**.  
 
 Probabilistic modeling can usually be broken down into three basic steps:  
 
