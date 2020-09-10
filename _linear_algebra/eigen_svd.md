@@ -3,6 +3,7 @@ layout: default
 title: EigenDecomposition and SVD
 slug: eigen-svd
 item_num: 5
+excerpt: In the last note, we looked at our first application of Linear Algebra in Machine Learning. Here we look at SVD, which again has lots of ML applications, one of the most common being PCA. For now, we will conclude with the discussion on SVD, and take up its applications as part of another series.
 ---
 
 $$
@@ -14,14 +15,14 @@ $$
 
 # EigenDecomposition and SVD
 
-*<!--excerpt-->In the last note, we looked at our first application of Linear Algebra in Machine Learning. Here we look at SVD, which again has lots of applications in Machine Learning, one of the most common being PCA. We will close our study of Linear Algebra with the introduction of SVD. We will introduce the applications of SVD (and Linear Algebra in general) to Machine Learning in another series.<!--excerpt-->*
+*In the last note, we looked at our first application of Linear Algebra in Machine Learning. Here we look at SVD, which again has lots of ML applications, one of the most common being PCA. For now, we will conclude with the discussion on SVD, and take up its applications as part of another series.*
 
 
 
 ### Change of Basis
-We all share the same Space and look at the same vectors. However we use different languages to describe the vectors. These languages are called co-ordinate systems. Each co-ordinate system has its own set of basis vectors, based on which it assigns unique co-ordinates to each vector. All the languages agree on only one thing. The location of the origin $(0,0)$, where a vector lands if you scale if by $0$. The standard co-ordinate system ($\mathbb{C}$) in 2D uses $\hat{\bt{i}}, \hat{\bt{j}}$ as basis vectors. This is written as $\mathbb{C}=\langle\hat{\bt{i}},\hat{\bt{j}}\rangle$.
+We all share the same space and deal with the same vectors. However we use different languages to describe the vectors. These languages are called co-ordinate systems. Each co-ordinate system has its own set of basis vectors, based on which it assigns unique co-ordinates to each vector. All the languages agree on only one thing. The location of the origin $(0,0)$, where a vector lands if you scale if by $0$. The standard co-ordinate system in 2D (let's denote it by $\mathbb{C}$) uses $\hat{\bt{i}}, \hat{\bt{j}}$ as basis vectors. This is written as $\mathbb{C}=\langle\hat{\bt{i}},\hat{\bt{j}}\rangle$.
 
-How do the co-ordinates of a vector change when we change the basis vectors (co-ordinate system)? Let $A$ be the matrix whose columns are the basis vectors of co-ordinate system $\mathbb{C}'$. Multiplying $\bt{x}$ (in $\mathbb{C}$) by $A$, we get $\bt{b}$ (in $\mathbb{C}$). This $\bt{b}$ (in $\mathbb{C}$) is the same as $\bt{x}$ (in $\mathbb{C}'$), because you are scaling the basis vectors of $\mathbb{C}'$ by the elements of $\bt{x}$. Thus, to convert the coordinates of any $\bt{x}$ (in $\mathbb{C}'$) to the co-ordinate system $\mathbb{C}$, we multiply $\bt{x}$ by the matrix $A$ (such that the columns of matrix $A$ represent the basis vectors of $\mathbb{C}'$).
+How do the co-ordinates of a vector change when we change the basis vectors? Let $A$ be the matrix whose columns are the basis vectors of co-ordinate system $\mathbb{C}'$. Multiplying $\bt{x}$ (in $\mathbb{C}$) by $A$, we get $\bt{b}$ (in $\mathbb{C}$). This $\bt{b}$ (in $\mathbb{C}$) is the same as $\bt{x}$ (in $\mathbb{C}'$), because you are scaling the basis vectors of $\mathbb{C}'$ by the elements of $\bt{x}$. Thus, to convert the coordinates of any $\bt{x}$ (in $\mathbb{C}'$) to the co-ordinate system $\mathbb{C}$, we multiply $\bt{x}$ by the matrix $A$ (such that the columns of matrix $A$ represent the basis vectors of $\mathbb{C}'$).
 
 Thus, if I want to use a co-ordinate system with $\mat{\bt{u_x}&\bt{u_y}&\bt{u_z}}$ as basis vectors, then the co-ordinates of $\bt{x}$ in the new co-ordinate system are given by $\mat{\bt{u_x}&\bt{u_y}&\bt{u_z}}^{-1}\bt{x}$.  
 
@@ -45,13 +46,13 @@ Thus, the method of finding eigenvectors is as follows:
 * Sequentially plug in each value of $\lambda$ and derive the matrix $(A - I\lambda)$.
 * Solve $(A - I\lambda)\bt{v} = \bt{0}$ to find $\vec{v}.$
 
-Remember a linear transformation doesn't always have an eigenvector. For example, the rotation operation doesn't have any eigenvectors. Shear transformation $M = \mat{1&1\\0&1}$ has a single eigenvalue ($1$). A linear transformation that scales every vector by $2$, has a single eigenvalue ($2$), but has infinitely many eigenvectors in each direction.  
+Remember a linear transformation doesn't always have an eigenvector. For example, the rotation operation doesn't have any eigenvectors. Shear transformation $$M = \mat{1&1 \\ 0&1}$$ has a single eigenvalue ($1$). A linear transformation that scales every vector by $2$, has a single eigenvalue ($2$), but has infinitely many eigenvectors in each direction.  
 
 Suppose $P$ is the matrix of a projection onto a plane. For any $\bt{x}$ in the plane $P\bt{x} = \bt{x}$, so $\bt{x}$ is an eigenvector with eigenvalue $1$. A vector $\bt{x}$ perpendicular to the plane has $P\bt{x} = \bt{0}$, so this is an eigenvector with eigenvalue $\lambda = 0$. The eigenvectors of $P$ span the whole space (but this is not true for every matrix).
 
-If the basis vectors are themselves eigenvectors of some transformation, then the transformation is represented by a diagonal matrix. In a diagonal matrix, only the elements on the principal diagonal are non-zero. We see that calculating higher powers of a diagonal matrix is trivial. But, we'll be rarely so lucky to have our basis vectors also be the eigen-vectors. How do we calculate higher powers for matrices whose eigenvectors are not the basis vectors? If the matrix is such that its eigenvectors span the whole space, then we can change choose the eigenvectors to be our basis vectors and change our co-ordinate system accordingly. This is known as the eigen-basis. In this eigen-basis system, the transformation only linearly scales each component. Therefore applying the same transformation multiple times is very easy. Finally when we have applied the transformation, we can convert back to our original coordinate system. 
+If the basis vectors are themselves eigenvectors of some transformation, then the transformation is represented by a diagonal matrix. In a diagonal matrix, only the elements on the principal diagonal are non-zero. We see that calculating higher powers of a diagonal matrix is trivial. But, we'll be rarely so lucky to have our basis vectors also be the eigen-vectors. How do we calculate higher powers for matrices whose eigenvectors are not the basis vectors? If the matrix is such that its eigenvectors span the whole space, then we can choose the eigenvectors to be our basis vectors and change our co-ordinate system accordingly. This is known as the eigen-basis. In this eigen-basis system, the transformation only linearly scales each component. Therefore applying the same transformation multiple times is very easy. Finally when we have applied the transformation, we can convert back to our original coordinate system. 
 
-Let $A$ be the matrix whose transformation we are interested in and whose eigenvectors span the entire space. Let $V$ be the matrix whose columns are the eigen-basis vectors. For any vector $\bt{x}$, $V^{-1}\bt{x}$ gives us the coordinates of $\bt{x}$ in eigen-basis. How would the transform represented by $A$ look in the eigen-basis system? It would only linearly scale each eigenvector of $A$, so it should be represented by a diagonal matrix $\Lambda$ in eigen-basis. $\Lambda^k V^{-1} \bt{x}$ gives the eigen-basis coordinates of $\bt{x}$ after applying the transform $k$ times. Now finally we want to convert these coordinates into our original basis. Thus the final vector in the original system is $V\Lambda^k V^{-1}\bt{x}$. From this we can conclude that $A = V\Lambda^k V^{-1}$ 
+Let $A$ be the matrix whose transformation we are interested in and whose eigenvectors span the entire space. Let $V$ be the matrix whose columns are the eigen-basis vectors. For any vector $\bt{x}$, $V^{-1}\bt{x}$ gives us the coordinates of $\bt{x}$ in eigen-basis. How would the transformation represented by $A$ look in the eigen-basis system? It would only linearly scale each eigenvector of $A$, so it should be represented by a diagonal matrix $\Lambda$ in eigen-basis. $\Lambda^k V^{-1} \bt{x}$ gives the eigen-basis coordinates of $\bt{x}$ after applying the transform $k$ times. Now finally we want to convert these coordinates into our original basis. Thus the final vector in the original system is $V\Lambda^k V^{-1}\bt{x}$. From this we can conclude that $A^k = V\Lambda^k V^{-1}$ 
 
 Watch 3Blue1Brown's video on  [eigenvectors and eigenvalues](https://www.youtube.com/watch?v=PFDu9oVAE-g) for an in-depth explanation.
 
@@ -71,13 +72,13 @@ $$
 
 **Powers of a Matrix**
 
-We use $A^2$ to denote application of the transform denoted by $A$ twice ($AA$). In general, it is a very difficult task to compute $A^k$ (for large $k$) even for small matrices. Eigenvalue Decomposition gives us a very easy way of doing the same. If we can write $A$ as $V\Sigma V^{-1}$, then 
+We use $A^2$ to denote application of $A$ transform twice. In general, it is a very difficult task to compute $A^k$ (for large $k$) even for small matrices. Eigenvalue Decomposition gives us a very easy way of doing the same. If we can write $A$ as $V\Sigma V^{-1}$, then 
 
 $$
 A^k = (V\Sigma V^{-1}) (V\Sigma V^{-1}) \dots(V\Sigma V^{-1}) = V\Sigma^kV^{-1}
 $$
 
-This equation intuitively makes sense. Once you shift a vector for normal basis to eigen-basis, repeated application of the transform just scales each component (along each eigenvector) repeatedly by the corresponding eigenvalue.
+This equation intuitively makes sense. Once you shift a vector from normal basis to eigen-basis, repeated application of the transform just scales each component (along each eigenvector) repeatedly by the corresponding eigenvalue.
 
 
 
@@ -105,9 +106,9 @@ A = Q\Lambda Q^T = \mat{\bt{q_1}&\bt{q_2}&\dots}\mat{\lambda_1&&\\&\lambda_2&\\&
 $$
 
 Remember, that if we want to find the projection of $\bt{p}$ on $\bt{a}$, we multiply $\bt{p}$ by the matrix $\frac{\bt{a}\bt{a}^T}{\bt{a}^T\bt{a}}$. $\bt{q_1}\bt{q_1}^T$ is the projection matrix for $\bt{q_1}$ as it is a unit vector. Also, all the columns of a projection matrix are scaled versions of the same vector. Thus a projection matrix is a rank one matrix! And from the equation above, every symmetric matrix can be decomposed as a linear combination of perpendicular projection
-(rank one) matrix! This is known as the Spectral Theorem.
+(rank one) matrices! This is known as the Spectral Theorem.
 
-**Property (without proof): **Number of positive/negative eigenvalues for symmetric matrices can be determined from the signs of the pivots. The number of positive eigenvalues is the same as the number of positive pivots.
+**Property (without proof):** Number of positive/negative eigenvalues for symmetric matrices can be determined from the signs of the pivots. The number of positive eigenvalues is the same as the number of positive pivots (in the upper triangular form).
 
 **Positive Definite Matrix:** A positive definite matrix is a symmetric matrix for which all eigenvalues are positive. A good way to tell if a matrix is positive definite is to check that all its pivots are positive. 
 
@@ -137,7 +138,7 @@ $$
 
 The equations above represent ellipsoids whose axes coincide with the axes of the coordinate system. These equations can be represented in matrix lingo as $\bt{x}^T\Lambda\bt{x}$, where $\Lambda$ is a diagonal matrix. What if the axes of the ellipsoid don't fall on the axes of the coordinate system? Then the ellipsoid will be of the form $\bt{x}^TA\bt{x}$, where $A$ is positive definite. We know that $A=Q\Lambda Q^T$, where $Q$ is orthonormal and $Q^T = Q^{-1}$. If we perform change of basis to $Q$, then the equation again becomes $\bt{z}^T\Lambda \bt{z}$, where $\bt{z}$ are the coordinates in the eigen-basis. Thus $\bt{x}^TA\bt{x}$ represents an ellipsoid whose axes are along the eigenvectors of $A$.
 
-Lec 6 (second half) of ECE-532 also covers Positive Definite Matrices and 3D ellipses.
+*Lec 6 (second half) of ECE-532 also covers Positive Definite Matrices and 3D ellipses.*
 
 
 
@@ -163,7 +164,7 @@ $$
 \bt{x}^T A^TA \bt{x} = (A\bt{x})^T(A\bt{x}) = \|A\bt{x}\|^2 \geq 0
 $$
 
-$\|{A\bt{x}}\| > 0$ is true only if $\bt{N}(A) = \{\bt{0}\}$. This is true if $\textrm{rank}(A) = n$.  
+$$\|{A\bt{x}}\| > 0$$ is true only if $\bt{N}(A) = \{\bt{0}\}$. This is true if $\textrm{rank}(A) = n$.  
 
 Finally we talk about Similar Matrices.
 
@@ -193,7 +194,7 @@ When we **diagonalize** $A$, we’re finding a diagonal matrix $\Lambda$ that is
 
 ### Singular Value Decomposition
 
-Once all the above things have been understood clearly, refer to [this note](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/positive-definite-matrices-and-applications/singular-value-decomposition/MIT18_06SCF11_Ses3.5sum.pdf) for a preliminary explanation of SVD. Remember that in the note, the row space of an $m\times n$ matrix $A$ refers to all the vectors that can be mutliplied to $A$ (basically $\R^n$), and not the span of the rows of $A$ (denoted by $\bt{R}(A^T)$). We have already proved that $\bt{R}(A^T)  = \bt{N}(A)^\perp$. Thus, $\bt{R}(A^T)$ consists of all the vectors $\bt{x}$ such that $A\bt{x} \neq \bt{0}$.
+Once all the above things have been understood clearly, refer to [this note](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/positive-definite-matrices-and-applications/singular-value-decomposition/MIT18_06SCF11_Ses3.5sum.pdf) for a preliminary explanation of SVD. Remember that in the note, the row space of a $m\times n$ matrix $A$ refers to all the vectors that can be mutliplied to $A$ (basically $\mathbb{R}^n$), and not the span of the rows of $A$ (denoted by $\bt{R}(A^T)$). We have already proved that $\bt{R}(A^T)  = \bt{N}(A)^\perp$. Thus, $\bt{R}(A^T)$ consists of all the vectors $\bt{x}$ such that $A\bt{x} \neq \bt{0}$.
 
 Strang takes the identity $A = U\Sigma V^T$ as given, and shows us how to solve for $U$ and $V$. He doesn't exactly give us a proof of why every $m\times n$ matrix $A$ can be expressed as $U\Sigma V^T$. For a proof refer to [this link](https://gregorygundersen.com/blog/2018/12/20/svd-proof/#4-textbfu_i-is-a-unit-eigenvector-of-aatop).
 

@@ -3,6 +3,7 @@ layout: default
 title: Least Squares
 slug: least-squares
 item_num: 4
+excerpt: We are now equipped with the basics of Linear Algebra. We are familiar with how a matrix can be used to represent a vector space, as well as a system of linear equations. Now let us try to apply this knowledge to learn from data (aka Machine Learning). We will be relying on ECE 532 and MIT 18.06 for the same.
 ---
 
 $$
@@ -12,7 +13,7 @@ $$
 
 # Least Squares
 
-*<!--excerpt-->We are now equipped with the basics of Linear Algebra. We are familiar with how a matrix can be used to represent a vector space, as well as a system of linear equations. Now let us try to apply this knowledge to learn from data (machine learning). We will be relying on ECE 532 and MIT 18.06 for the same.<!--excerpt-->*
+*We are now equipped with the basics of Linear Algebra. We are familiar with how a matrix can be used to represent a vector space, as well as a system of linear equations. Now let us try to apply this knowledge to learn from data (aka Machine Learning). We will be relying on ECE 532 and MIT 18.06 for the same.*
 
 
 
@@ -22,21 +23,19 @@ $$
 
 Machine Learning Setup : We'd like to solve $A \bt{x} = \bt{b}$, where:
 
-* $A \in \mathbb{R}^{m\times n} (m >> n)$. $A$ represents the independent variables (otherwise denoted by $X$, in general machine learning setup). 
-* $\bt{x}$ represents the *weights* that we need to find out using the ML algorithm (otherwise denoted by $\bt{w}$) . 
+* $A \in \mathbb{R}^{m\times n} (m >> n)$. $A$ contains the values of the independent variables (otherwise denoted by $X$, in general machine learning setup). 
+* $\bt{x}$ represents the *weights* that we want to figure out using the ML algorithm (otherwise denoted by $\bt{w}$) . 
 * $\bt{b}$ denotes the readings of the dependent variable (otherwise denoted by $\bt{y}$). 
 
 Typically $A$ will be full rank and $\bt{b} \notin \bt{R}(A)$; so there is no solution that would satisfy all the equations. We define the residual $\bt{r} = A\bt{x} - \bt{b}$.
 
-Because we can't make $\bt{r} = \bt{0}$ ($A\bt{x} = \bt{b}$ has no solutions),  instead we try to make $\|\bt{r}\|$ as small as possible, often written as 
+Because we can't make $\bt{r} = \bt{0}$ ($A\bt{x} = \bt{b}$ has no solutions),  instead we try to make $$\|\bt{r}\|$$ as small as possible, often written as 
 
 $$
 \min_\bt{x}{\|A\bt{x} - \bt{b}\|^2}
 $$
 
-Geometrically, we want to find a vector in the column space of $A$ (represented by $A\bt{x}$) which has the least 
-
-square distance from $\bt{b}$. Let $\hat{\bt{x}} = \textrm{argmin}_\bt{x}{\|A\bt{x} - \bt{b}\|^2}$. By Pythagoras Theorem, the minimum residual $\hat{\bt{r}}$ will be perpendicular to $\bt{R}(A)$ ( perpendicular to all the vectors in $\bt{R}(A)$). 
+Geometrically, we want to find a vector in the column space of $A$ (represented by $A\bt{x}$) which has the least square distance from $\bt{b}$. Let $$\hat{\bt{x}} = \textrm{argmin}_\bt{x}{\|A\bt{x} - \bt{b}\|^2}$$. By Pythagoras Theorem, the minimum residual $\hat{\bt{r}}$ will be perpendicular to $\bt{R}(A)$ ( perpendicular to all the vectors in $\bt{R}(A)$). 
 
 Thus, in order to deal with least squares, we need to have background in orthogonality and projections. And that is exactly what we will develop next.
 
@@ -54,7 +53,7 @@ Are two perpendicular planes in $\mathbb{R}^3$ orthogonal to each other? No. Vec
 
 Null space & Row space of a $m \times n$ matrix are both spaces in $\mathbb{R}^n$ and are orthogonal to each other. Why?
 
-$$\bt{x} \in \bt{N}(A) \iff A\bt{x} = \mat{\bt{r_1} \cdotp \bt{x}\\ \vdots \\\bt{r_n} \cdotp \bt{x}} = \mat{\bt{0} \\ \vdots \\ \bt{0}}$$  
+$$\bt{x} \in \bt{N}(A) \iff A\bt{x} = \mat{\bt{r_1} \cdotp \bt{x}\\ \vdots \\\bt{r_n} \cdotp \bt{x}} = \mat{0 \\ \vdots \\ 0}$$  
 
 We mentioned that the minimum residual $\hat{\bt{r}}$ will be perpendicular to the column space of $A$. This can be written as $\hat{\bt{r}} \in \bt{R}(A)^\perp$.  The set $S^\perp$ ($S$ perp) is defined as the set of all vectors that are perpendicular to $S$.
 
@@ -66,7 +65,7 @@ This set defines a vector space, because:
 
 1. $\bt{0}^T\bt{x} = 0 \quad (\bt{0} \in S^\perp)$
 2. If $\bt{w_1}, \bt{w_2} \in S^\perp$, then $(\bt{w_1} + \bt{w_2}) \in S$
-3. If$\bt{w_1} \in S^\perp$, then $\alpha\bt{w_1} \in S^\perp$.
+3. If $\bt{w_1} \in S^\perp$, then $\alpha\bt{w_1} \in S^\perp$.
 
 This leads to following definition:
 
@@ -110,14 +109,14 @@ $A^TA$ is a $n\times n$ matrix ($n$ is the number of independent variables). The
 
 **Fact**: $A^TA$ is invertible (i.e. $A^TA\hat{\bt{x}} = A^T\bt{b}$  has a unique solution) if and only if $A$ has linearly independent columns (i.e. rank($A$) = n, or $\bt{N}(A) = \bt{0}$).
 
-**Proof**: Observe that if $A\bt{x} = \bt{0}$ for some $\bt{x}$, then $A^TA\bt{x} = \bt{0}$. Similarly if $A^TA\bt{x} = \bt{0}$, then $\bt{x}^T A^TA\bt{x} = \bt{0}$ and $\|A\bt{x}\| = 0$, which implies $A\bt{x} = \bt{0}$.
+**Proof**: Observe that if $A\bt{x} = \bt{0}$ for some $\bt{x}$, then $A^TA\bt{x} = \bt{0}$. Similarly if $A^TA\bt{x} = \bt{0}$, then $\bt{x}^T A^TA\bt{x} = \bt{0}$ and $$\|A\bt{x}\| = 0$$, which implies $A\bt{x} = \bt{0}$.
 
 $$
 \bt{N}(A) = \bt{N}(A^TA) \\
-\bt{N}(A) = \{\bt{0}\}\iff \bt{N}(A^TA) = \{\bt{0}\}
+\therefore \bt{N}(A) = \{\bt{0}\}\iff \bt{N}(A^TA) = \{\bt{0}\}
 $$
 
-**Conclusion**: If $A$ has linearly independent columns, then solution to least square problem $\min \|A\bt{x} - \bt{b}\|^2$ is 
+**Conclusion**: If $A$ has linearly independent columns, then solution to least square problem $$\min \|A\bt{x} - \bt{b}\|^2$$ is 
 
 $$
 \hat{\bt{x}} = (A^TA)^{-1}A^T\bt{b}
@@ -157,9 +156,9 @@ $$
 
 Here $A$ is a long matrix. So for many $\bt{b}$(s) there won't exist any solution (there won't be a single line passing through all the points). Therefore we find the projection of $\bt{b}$ on $\bt{R}(A)$. That projection will be the closest point to $\bt{b}$ that can be achieved by a linear model.
 
-If the columns of $A$ are independent (two features are not linearly correlated) then we have a unique solution for $\bt{x} = \mat{m \\ c}$ which is given by $\hat{\bt{x}} = (A^TA)^{-1}A^T\bt{b}$. If a column of $A$ is a linearly scaled version of another column, then there can be multiple solutions (as we saw in Lasso Regression with correlated variables).
+If the columns of $A$ are independent (two features are not linearly correlated) then we have a unique solution for $$\bt{x} = \mat{m \\ c}$$ which is given by $\hat{\bt{x}} = (A^TA)^{-1}A^T\bt{b}$. If a column of $A$ is a linearly scaled version of another column, then there can be multiple solutions (this is the case when we perform Regression with highly correlated variables).
 
-Once we have found a solution $\hat{\bt{x}} = \mat{\hat{m}\\ \hat{c}}$, for any new point you can use the linear model to make predictions. Just plug the value of $x_{new}$ in the model ($y_{new} = \hat{m}x_{new} + \hat{c}$).
+Once we have found a solution $$\hat{\bt{x}} = \mat{\hat{m}\\ \hat{c}}$$, for any new point you can use the linear model to make predictions. Just plug the value of $x_{new}$ in the model ($y_{new} = \hat{m}x_{new} + \hat{c}$).
 
 **Additional Links**
 
@@ -173,8 +172,7 @@ Once we have found a solution $\hat{\bt{x}} = \mat{\hat{m}\\ \hat{c}}$, for any 
 
 ### Lecture 17 (Orthonormal Basis)
 
-A set of orthonormal vectors $\{\bt{q_1}, \bt{q_2},\dots\}$ is a set of unit vectors where every pair is perpendicular. We can
-represent this as a matrix $Q = \mat{\bt{q_1} & \bt{q_2} & \dots}$, where $\bt{q_i}$(s) are column vectors. The above requirement can be written as $Q^TQ=I$. This matrix $Q$ is called an orthonormal matrix. 
+A set of orthonormal vectors $$\{\bt{q_1}, \bt{q_2},\dots\}$$ is a set of unit vectors where every pair is perpendicular. We can represent this as a matrix $Q = \mat{\bt{q_1} & \bt{q_2} & \dots}$, where $\bt{q_i}$(s) are column vectors. The above requirement can be written as $Q^TQ=I$. This matrix $Q$ is called an orthonormal matrix. 
 
 
 
@@ -226,7 +224,8 @@ $$\textrm{proj}_{\bt{R}(A)}\bt{b} = \textrm{proj}_{\bt{R}(Q)}\bt{b}$$.
 
 $$
 \begin{align}
-\textrm{proj}_{\bt{R}(Q)}\bt{b} &= QQ^T\bt{b} \\
+\textrm{proj}_{\bt{R}(Q)}\bt{b} &= (QQ^T)\bt{b} \\
+&= Q(Q^T\bt{b}) \\
 &= \bt{q_1}\bt{q_1}^T\bt{b} + \bt{q_2}\bt{q_2}^T\bt{b} + \dots + \bt{q_r}\bt{q_r}^T\bt{b} \\
 &= \textrm{proj}_{\bt{q_1}}\bt{b} + \textrm{proj}_{\bt{q_2}}\bt{b} + \dots + \textrm{proj}_{\bt{q_r}}\bt{b} \\
 \end{align}

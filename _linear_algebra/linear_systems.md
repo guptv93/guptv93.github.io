@@ -3,6 +3,7 @@ layout: default
 title: System of Linear Equations (Part I)
 slug: row-space
 item_num: 2
+excerpt: Essence of Linear Algebra talks about the Matrix as a list of column vectors. In this note, we explore the Matrix as a set of linear equations (row-wise). We go over Gaussian Elimination, Matrix Inversion and A = LU Factorization; the topics that were left out of Essence of Linear Algebra videos. They follow Gilbert Strang’s 18.06 Course on MIT OCW. Also note, for now, we only talk about square matrices and systems where num of linear equations is equal to the number of unknowns.
 ---
 
 
@@ -14,7 +15,7 @@ $$
 # Linear Systems (Part I)
 
 
-*<!--excerpt-->Essence of Linear Algebra talks about the Matrix as a list of column vectors. Here we explore the Matrix as a set of linear equations (row-wise). We go over Gaussian Elimination, Matrix Inversion and A = LU Factorization; the topics that were left out of Essence of Linear Algebra videos. They follow Gilbert Strang’s 18.06 Course on MIT OCW. Also note, for now, we only talk about square matrices and systems where num of linear equations is equal to the number of unknowns.<!--excerpt-->*
+*Essence of Linear Algebra talks about the Matrix as a list of column vectors. In this note, we explore the Matrix as a set of linear equations (row-wise). We go over Gaussian Elimination, Matrix Inversion and A = LU Factorization; the topics that were left out of Essence of Linear Algebra videos. They follow Gilbert Strang’s 18.06 Course on MIT OCW. Also note, for now, we only talk about square matrices and systems where num of linear equations is equal to the number of unknowns.*
 
 
 
@@ -39,7 +40,7 @@ $$
 
 where $\b{a_{.i}}$ denotes the $i$-th column vector of matrix $A$. 
 
-Geometrically, for our initial example with $n=2$, we want to find number $x$ and $y$ so that $x$ copies of vector $\mat{2 \\ -1}$ added to $y$ copies of vector $\mat{-1 \\ 2}$ equals the vector $\mat{0 \\ 3}$.
+Geometrically, for our initial example with $n=2$, we want to find number $x$ and $y$ so that $x$ copies of vector $$ \mat{2 \\ -1} $$ added to $y$ copies of vector $$\mat{-1 \\ 2}$$ equals the vector $$\mat{0 \\ 3}$$.
 
 ####  Row-wise (Dot Product of Rows)
 
@@ -68,7 +69,7 @@ Allowed Operations for Elimination:
 
 In the equation $A\b{x} = \b{b}$, you have to perform the same row operations on $A$ as you would on $\b{b}$ (to keep the system of equations equivalent). Therefore you can augment $A$ with $\b{b}$ and write it as $\mat{A & \b{b}}$. Once you get $U$, all you need to do is back-substitution. 
 
-![image-20200531144331109](linear_systems.assets/image-20200531144331109.png)
+![Matrix Elimination](/assets/images/linear_algebra/linear_systems.assets/image-20200531144331109.png)
 
 <center><b> Image from OCW Notes </b></center>
 
@@ -80,19 +81,19 @@ How do we represent these elimination steps in matrix form? For this we need to 
 
 ### Matrix Multiplication
 
-![image-20200531140547421](linear_systems.assets/image-20200531140547421.png)
+![Matrix Multiplication](/assets/images/linear_algebra/linear_systems.assets/image-20200531140547421.png)
 
 #### Column-wise
 
-![image-20200531141019121](linear_systems.assets/image-20200531141019121.png)
+![Column-wise Interpretation for Matrix Multiplication](/assets/images/linear_algebra/linear_systems.assets/image-20200531141019121.png)
 
 $C_{.j}$ is a linear combination of the columns of $A$, scaled by the corresponding entries in $\b{b_{.j}}$
 
 #### Row-wise
 
-![image-20200531141325809](linear_systems.assets/image-20200531141325809.png)
+![Row-wise Interpretation for Matrix Multiplication](/assets/images/linear_algebra/linear_systems.assets/image-20200531141325809.png)
 
-$C_{i.}^T$ is the linear combination of the rows of $B$, scaled according to the corresponding entries in $\b{a^T_{i.}}$
+$C_{i.}^T$ is the linear combination of the rows of $B$, scaled according to the corresponding entries in $\b{a^T_{i.}}$. As a result,  
 
 
 $$
@@ -120,7 +121,7 @@ $$
 E_{32}E_{31}E_{21}A = U
 $$
 
-Observe that $U$ and $A$ are different matrices (not equivalent). If we solve $U\b{x} = EA\b{x} = E\b{b}$, then it is also true that $A\b{x} = \b{b}$. This is why the method of elimination works. Also observe that the null-space of $U$ and $A$ is the same (substitute $\b{b} = 0$ in the equation $U \b{x} = E \b{b}$).
+Observe that $U$ and $A$ are different matrices (not equivalent). However, the system of linear equations remains equivalent if we apply the same eliminations to both $A$ and $\b{b}$. This is why the method of elimination works. Also observe that the null-space of $U$ and $A$ is the same (substitute $\b{b} = 0$ in the equation $U \b{x} = E \b{b}$).
 
 If one of the pivot elements is coming out to be $0$ and we need to change the order of rows, we use the permutation matrix (denote by $P$). It is obtained by moving around the rows of Identity Matrix $I$. For example,
 
@@ -142,7 +143,7 @@ $$
 E_{21}^{-1} = \mat{1 & 0 & 0 \\ 3 & 1 & 0 \\ 0 & 0 & 1}
 $$
 
-In fact, $E^{-1}_{21}E_{21} = I$. Is $E_{21}E^{-1}_{21} = I$ also true? Let us study inverses in more detail.
+In fact, $E_{21}^{-1}E_{21} = I$. Is $E_{21}E_{21}^{-1} = I$ also true? Let us study inverses in more detail.
 
 
 ### Inverse Matrices
@@ -164,14 +165,17 @@ When would the inverse matrix not exist? If for some $\b{x} \neq \b{0}$, we have
 Finding the inverse of a matrix is closely related to solving systems of linear equations: 
 
 $$
-\mat{1 & 3 \\ 2 & 7} \mat{a & b \\ c & d} = \mat{1 & 0 \\ 0 & 1}
+\begin{gather}
+\mat{1 & 3 \\ 2 & 7} \mat{a & b \\ c & d} = \mat{1 & 0 \\ 0 & 1} \\
+(A) \quad (A^{-1}) \quad \quad (I) \\
+\end{gather}
 $$
 
-can be read as saying ”$A$ times the $j^{th}$ column of $A^{−1}$ equals $j^{th}$ column of the identity matrix”. This is just a special form of the equation $A\b{x} = \b{b}$. 
+can be read as saying "$A$ times the $j^{th}$ column of $A^{−1}$ equals $j^{th}$ column of the identity matrix". This is just a special form of the equation $A\b{x} = \b{b}$. Let us see how we can use Gauss Jordan Elimination to solve two or more systems of linear equations at the same time.
 
 #### Gauss Jordan Elimination
 
-We can use the method of elimination to solve two or more linear equations at the same time. Just augment the matrix with the whole identity matrix $I$, to obtain $\mat{A \mid I}$.
+We will find the inverse of a matrix using Gauss Jordan Elimination. Just augment the matrix with the whole identity matrix $I$, to obtain $\mat{A \mid I}$.
 
 (Once we have used Gauss’ elimination method to convert the original matrix to upper triangular form, we go on to use Jordan’s idea of eliminating entries in the upper right portion of the matrix.)  
 
