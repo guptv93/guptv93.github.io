@@ -10,8 +10,7 @@ Prior to joining NYU as a masters student, I worked as a Software Engineer with 
 
 ## Publications
 
-Self-supervised learning through the eyes of a child.  
-(Under Review at NeurIPS 2020)  
-arXiv: [2007.16189](https://arxiv.org/abs/2007.16189)  
-GitHub: [Contrastive Learners](https://github.com/guptv93/saycam-metric-learning), [Tagging Portal](https://github.com/guptv93/tagging-app)  
+[Self-supervised learning through the eyes of a child.](https://arxiv.org/abs/2007.16189)  
+Accepted at NeurIPS 2020  
+Press Releases: [NewScientist](https://www.newscientist.com/article/2251529-baby-mounted-cameras-teach-ai-to-see-through-a-childs-eyes/), [DigitalTrends](https://www.digitaltrends.com/news/ai-view-world-eyes-of-a-child/?itm_medium=topic&itm_source=145&itm_content=2x2&itm_term=2356592)
 
