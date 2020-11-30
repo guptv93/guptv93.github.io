@@ -22,7 +22,7 @@ $$
 ### Change of Basis
 We all share the same space and deal with the same vectors. However we use different languages to describe the vectors. These languages are called co-ordinate systems. Each co-ordinate system has its own set of basis vectors, based on which it assigns unique co-ordinates to each vector. All the languages agree on only one thing. The location of the origin $(0,0)$, where a vector lands if you scale if by $0$. The standard co-ordinate system in 2D (let's denote it by $\mathbb{C}$) uses $\hat{\bt{i}}, \hat{\bt{j}}$ as basis vectors. This is written as $\mathbb{C}=\langle\hat{\bt{i}},\hat{\bt{j}}\rangle$.
 
-How do the co-ordinates of a vector change when we change the basis vectors? Let $A$ be the matrix whose columns are the basis vectors of co-ordinate system $\mathbb{C}'$. Multiplying $\bt{x}$ (in $\mathbb{C}$) by $A$, we get $\bt{b}$ (in $\mathbb{C}$). This $\bt{b}$ (in $\mathbb{C}$) is the same as $\bt{x}$ (in $\mathbb{C}'$), because you are scaling the basis vectors of $\mathbb{C}'$ by the elements of $\bt{x}$. Thus, to convert the coordinates of any $\bt{x}$ (in $\mathbb{C}'$) to the co-ordinate system $\mathbb{C}$, we multiply $\bt{x}$ by the matrix $A$ (such that the columns of matrix $A$ represent the basis vectors of $\mathbb{C}'$).
+How do the co-ordinates of a vector change when we change the basis vectors? Let $A$ be the matrix whose columns are the basis vectors of co-ordinate system $\mathbb{C}'$. Multiplying $\bt{x}$ (in $\mathbb{C}$) by $A$, we get $\bt{b}$ (in $\mathbb{C}$). This $\bt{b}$ (represented in $\mathbb{C}'$) is the same as $\bt{x}$ (in $\mathbb{C}$), because you are scaling the basis vectors of $\mathbb{C}'$ by the elements of $\bt{x}$ to obtain $\bt{b}$. Thus, to convert the coordinates of any $\bt{x}$ (in $\mathbb{C}'$) to the co-ordinate system $\mathbb{C}$, we multiply $\bt{x}$ by the matrix $A$ (such that the columns of matrix $A$ represent the basis vectors of $\mathbb{C}'$).
 
 Thus, if I want to use a co-ordinate system with $\mat{\bt{u_x}&\bt{u_y}&\bt{u_z}}$ as basis vectors, then the co-ordinates of $\bt{x}$ in the new co-ordinate system are given by $\mat{\bt{u_x}&\bt{u_y}&\bt{u_z}}^{-1}\bt{x}$.  
 
@@ -35,9 +35,11 @@ This concept is quintessential for a good understanding of Eigendecomposition an
 ### Eigenvectors and Eigenvalues
 There might be some vectors during a linear transformation, that only get stretched or squished (and don't change their direction). Scalar multiples of such vectors will also have the same property of not changing their direction. Such vectors are called the eigenvectors of a transformation. The factor by which an eigenvector is stretched or squished is called the eigenvalue of that eigenvector.  
 
-If $\bt{v}$ is the eigenvector for a transformation $A$, and the corresponding eigenvalue is $\lambda$, then 
-$$A\bt{v} = \lambda\bt{v}$$
-$$\implies(A - I\lambda)\bt{v} = \bt{0}$$
+If $\bt{v}$ is the eigenvector for a transformation $A$, and the corresponding eigenvalue is $\lambda$, then  
+
+$$A\bt{v} = \lambda\bt{v}$$  
+
+$$\implies(A - I\lambda)\bt{v} = \bt{0}$$  
 
 If $\textrm{det}(A - \lambda I) \neq 0$, then $\bt{v} = \bt{0}$ is the only solution of the above equation. Therefore eigenvectors exist only if $\textrm{det}(A - \lambda I) = 0$.  
 
@@ -194,7 +196,14 @@ When we **diagonalize** $A$, we’re finding a diagonal matrix $\Lambda$ that is
 
 ### Singular Value Decomposition
 
-Once all the above things have been understood clearly, refer to [this note](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/positive-definite-matrices-and-applications/singular-value-decomposition/MIT18_06SCF11_Ses3.5sum.pdf) for a preliminary explanation of SVD. Remember that in the note, the row space of a $m\times n$ matrix $A$ refers to all the vectors that can be mutliplied to $A$ (basically $\mathbb{R}^n$), and not the span of the rows of $A$ (denoted by $\bt{R}(A^T)$). We have already proved that $\bt{R}(A^T)  = \bt{N}(A)^\perp$. Thus, $\bt{R}(A^T)$ consists of all the vectors $\bt{x}$ such that $A\bt{x} \neq \bt{0}$.
+Once all the above things have been understood clearly, refer to [this note](https://ocw.mit.edu/courses/mathematics/18-06sc-linear-algebra-fall-2011/positive-definite-matrices-and-applications/singular-value-decomposition/MIT18_06SCF11_Ses3.5sum.pdf) for a preliminary explanation of SVD. Remember that in the note, the row space of a $m\times n$ matrix $A$ refers to all the vectors that can be mutliplied to $A$ (basically $\mathbb{R}^n$), and not the span of the rows of $A$ (denoted by $\bt{R}(A^T)$).
+
+Side Note: We have already proved that $\bt{R}(A^T)  = \bt{N}(A)^\perp$. Does this mean that $\bt{R}(A^T)$ consists of all vectors $\bt{x}$ such that $A\bt{x} \neq \bt{0}$? No!! This is because $\bt{N}(A)^\perp$ is not the set of vectors that don't belong to $\bt{N}(A)$. 
+
+$$
+\bt{N}(A)^\perp \neq \mathbb{R}^n - \bt{N}(A)
+$$
+
 
 Strang takes the identity $A = U\Sigma V^T$ as given, and shows us how to solve for $U$ and $V$. He doesn't exactly give us a proof of why every $m\times n$ matrix $A$ can be expressed as $U\Sigma V^T$. For a proof refer to [this link](https://gregorygundersen.com/blog/2018/12/20/svd-proof/#4-textbfu_i-is-a-unit-eigenvector-of-aatop).
 

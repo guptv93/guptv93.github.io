@@ -64,7 +64,7 @@ $$
 This set defines a vector space, because:
 
 1. $\bt{0}^T\bt{x} = 0 \quad (\bt{0} \in S^\perp)$
-2. If $\bt{w_1}, \bt{w_2} \in S^\perp$, then $(\bt{w_1} + \bt{w_2}) \in S$
+2. If $\bt{w_1}, \bt{w_2} \in S^\perp$, then $(\bt{w_1} + \bt{w_2}) \in S^\perp$
 3. If $\bt{w_1} \in S^\perp$, then $\alpha\bt{w_1} \in S^\perp$.
 
 This leads to following definition:
