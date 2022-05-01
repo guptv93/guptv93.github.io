@@ -55,27 +55,27 @@ Similar rules apply for continuous models, where instead of talking in terms of 
 
 Given an experiment, a corresponding sample space, and a probability law, suppose that we know that the outcome is within some given event $B$. We wish to quantify the likelihood (find the probability) that the outcome also belongs to some other event $A$. We thus seek to construct a new probability law over the updated universe $B$.
 
-The probability of the outcome belonging to an event $A$, given we already know that event $B$ has occurred, is called the conditional probability of $A$ given $B$, denoted by $\prob(A \mid B)$. It is obvious that 
+![cond_venn](/assets/images/probability/probability_basics.assets/cond_venn.jpg)
+
+The probability of the outcome belonging to an event $A$, given we already know that event $B$ has occurred, is called the conditional probability of $A$ given $B$, denoted by $\prob(A \mid B)$. From the definition, it is clear that 
 
 $$
 \prob(A \mid B) \propto P(A \cap B)
 $$
 
-The normalizing constant should be $\sum_A\prob(A\cap B) = \prob(B)$. Thus, we have
+The normalizing constant in the above equation, such that $\prob(A \mid B) + \prob(A^c \mid B) = 1$, should be $\prob(A\cap B) + \prob(A^c \cap B) = \prob(B)$. Thus, we have
 
 $$
 \prob(A \mid B) = \frac{\prob(A \cap B)}{\prob(B)}
 $$
 
-Out of the total probability assigned to outcomes of event $B$, $\prob(A \mid B)$ gives the fraction of probability that is assigned to outcomes that also belong to event $A$. The above formula can be rewritten as:
+The above equation makes intuitive sense. Out of the total probability assigned to outcomes of event $B$, $\prob(A \mid B)$ gives the fraction of probability that is assigned to outcomes that also belong to event $A$. The equation can be rewritten as:
 
 $$
 \prob(A \cap B) = \prob(B) \times \prob(A \mid B)
 $$
 
 This is called the **Product Rule** in Probability Theory. How many times $A$ and $B$ occur together? How many times  does $B$ occur? Out of the times $B$ occurs, how many times does $A$ occur?  
-
-![cond_venn](/assets/images/probability/probability_basics.assets/cond_venn.jpg)
 
 Venn diagrams aren’t always the best way of visualizing conditional probability. A better tool is - a probability tree. Probability trees don’t just help you visualize probabilities; they can help you to calculate them, too. Each branch of the probability tree shows the probability of a particular outcome given the outcome of the parent branch. You can find probabilities involving intersections by multiplying the probabilities of linked branches together. As an example, suppose you want to find $\prob(A \cap B)$. You can find this by multiplying $\prob(B)$ and $\prob(A \mid B)$ together. 
 

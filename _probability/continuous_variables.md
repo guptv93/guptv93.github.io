@@ -70,9 +70,9 @@ Variance is exactly similar to its discrete counterpart.
 
 $$
 \begin{align}
-\v(X) &= \expect[(X - \mu)^2]\\
-\v(aX+b) &= a^2\v(X) \\ 
-\v(X) &= \expect[X^2] - (\expect[X])^2 \\ 
+&\v(X) = \expect[(X - \mu)^2] \\
+&\v(aX+b) = a^2\v(X) \\ 
+&\v(X) = \expect[X^2] - (\expect[X])^2 \\ 
 \end{align}  
 $$
 
@@ -392,14 +392,6 @@ $$
 
 Comparing the two equations stated above, we can see that the contours of the joint distribution are elliptical with the center at $(\mu_x, \mu_y)$.
 
-If $X$ and $Y$ are not independent then, the contours are still elliptical, but their major and minor axes are not  aligned with the coordinate axes (to be accepted without proof). In this case, the formula inside the exponential term will need to represent a general 2-dimensional ellipse. Thus, it is written as follows:
-
-$$
-f_{X, Y}(x, y) = k\,\textrm{exp}\bigg\{-\frac{1}{2}(\bt{x} - \bt{\mu})^T\Sigma^{-1}(\bt{x} - \bt{\mu})\bigg\}\\
-\textrm{where } \bt{x} = \mat{x\\ y} \textrm{ and } \bt{\mu} = \mat{\mu_x \\ \mu_y}
-$$
-
-$\Sigma$ is the covariance matrix of $X$ and $Y$. The major and minor axes of the elliptical contours are now along the eigenvectors $\Sigma$. If $X$ and $Y$ are independent, then $\Sigma$ is a diagonal matrix and the eigenvectors are along the co-ordinate axes. We discuss this, in some detail, in our notes on linear algebra (specifically in the section on positive definite matrices).
 
 ### Bayesian Inference
 
