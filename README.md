@@ -4,6 +4,10 @@ This is the source code of [my personal blog](https://guptv93.github.io), orgina
 
 ## Run website locally
 
+**Install Ruby on MacOS**
+
+Follow : https://jekyllrb.com/docs/installation/macos/ till `ruby -v`
+
 **Install bundler**
 
 ```bash
