@@ -11,4 +11,5 @@ I personally feel that preparing notes is a valuable learning experience and one
 Find below, the links to my notes on Maths for Machine Learning. They are mostly scribes from the different classes that I've attended (physically or virtually). Almost nothing in the notes is originally mine. They are collections of teachings, snippets and links that I've found useful. The intention has been to stitch them together coherently, while sifting through the unnecessary details. Let me know when Google does that for you!
 
 * [Probability](/probability)
+* [Statistics](/statistics)
 * [Linear Algebra](/algebra)

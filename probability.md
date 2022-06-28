@@ -8,7 +8,7 @@ permalink : /probability/
 
 *These notes closely follow Introduction to Probability, [book](https://www.amazon.com/dp/188652923X/) and [video lectures](https://ocw.mit.edu/resources/res-6-012-introduction-to-probability-spring-2018/index.htm), by Dimitri P. Bertsekas and John N. Tsitsiklis.*
 
-<img class="note-cover" src="/assets/images/probability/probability_cover.jpeg"/>
+<img class="note-cover" src="/assets/images/probability/probability_cover2.jpeg"/>
 
 {% assign probability = site.probability | sort: "item_num" %}
 {% for note in probability %}
