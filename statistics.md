@@ -6,7 +6,7 @@ permalink : /statistics/
 
 <h1> {{ page.title }} </h1>
 
-*These notes closely follow [Introduction to Probability and Statistics for Engineers and Scientists](https://www.amazon.com/dp/0128243465), by Sheldon Ross; [All of Statistics](https://www.amazon.com/dp/1441923225), by Larry Wasserman and [Regression](https://www.khanacademy.org/math/statistics-probability/advanced-regression-inference-transforming) from Khan Acadey.*
+*These notes closely follow [Introduction to Probability and Statistics for Engineers and Scientists](https://www.amazon.com/dp/0128243465) by Sheldon Ross; [All of Statistics](https://www.amazon.com/dp/1441923225) by Larry Wasserman and [Statistical Regression](https://www.khanacademy.org/math/statistics-probability/advanced-regression-inference-transforming) from Khan Academy.*
 
 <img class="note-cover" src="/assets/images/statistics/cover.png"/>
 

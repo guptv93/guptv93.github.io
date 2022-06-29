@@ -3,7 +3,7 @@ layout: default
 title: Bayesian Inference
 slug: bayesian
 item_num: 6
-excerpt: Statistical Inference is the process of extracting information about an unknown variable or an unknown model from available data. The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions.
+excerpt: The Bayesian approach essentially tries to move the field of statistics back to the realm of probability theory. The unknown variables are treated as random variables with known prior distrubtions.
 ---
 
 $$

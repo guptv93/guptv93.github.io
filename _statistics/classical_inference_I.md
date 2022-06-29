@@ -37,7 +37,7 @@ The following are some of the desirable properties that we look for, from an est
 
 1. **Low or Zero Bias**
 
-The **estimation error** denoted by $\tilde{\Theta}_{n}$ is defined by $\tilde\Theta_n = \hat\Theta_n - \theta$. The bias of the estimator, denoted by $\mathrm{b}_\theta(\hat\Theta_n)$ is the expected value of the estimation error:
+The **estimation error** denoted by $\tilde\Theta_n$ is defined by $\tilde\Theta_ n = \hat\Theta_n - \theta$. The bias of the estimator, denoted by $\mathrm{b}_ \theta(\hat\Theta_ n)$ is the expected value of the estimation error:
 
 $$
 \mathrm{b}_\theta(\hat\Theta_n) = \expect_\theta[\hat\Theta_n] - \theta
