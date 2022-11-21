@@ -159,6 +159,12 @@ $$
 
 ![Chi Squared Distribution with 8 Degrees of Freedom](/assets/images/statistics/distributions.assets/chi-square_8_degrees.png)
 
+It is easy to prove that, for a chi-square variable with degree $n$
+
+$$
+\expect[X] = n
+$$
+
 
 
 ## The t-Distribution
@@ -166,7 +172,7 @@ $$
 If $Z$ and $χ_n^2$ are independent random variables, with $Z$ having a standard normal distribution and $\chi_n^2$ having a chi-square distribution with $n$ degrees of freedom, then the random variable $T_n$ defined by
 
 $$
-T_n = \frac{Z_n}{\sqrt{\chi^2_n/n}}
+T_n = \frac{Z}{\sqrt{\chi^2_n/n}}
 $$
 
 is said to have a *t-distribution with n degrees of freedom*. 
@@ -181,7 +187,7 @@ where $Z_1,\ldots, Z_n$ are independent standard normal random variables. It now
 
 ![t-distribution](/assets/images/statistics/distributions.assets/t-distribution.png)
 
-The t-density has thicker “tails,” indicating greater variability, than does the normal density. The mean and variance of Tn can be shown to equal
+The t-density has thicker “tails,” indicating greater variability, than does the normal density. The mean and variance of $T_n$ can be shown to equal
 
 $$
 \expect[T_n] = 0 \\

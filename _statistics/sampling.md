@@ -111,16 +111,16 @@ From the Central Limit Theorem, it is clear that if $n$ is large enough, then th
 $$
 \frac{\bar{X} -\mu}{\sigma/\sqrt{n}} \sim \mathcal{N}(0, 1)
 $$
-The central limit theorem leaves open the question of how large the sample size $n$ needs to be for the normal approximation to be valid? A general rule of thumb is that one can be confident of the normal approximation whenever the sample size $n$ is at least 30. That is, practically speaking, no matter how nonnormal the underlying population distribution is, the sample mean of a sample of size at least 30 will be approximately normal. In most cases, the normal approximation is valid for much smaller sample sizes.
+The central limit theorem leaves open the question of how large the sample size $n$ needs to be for the normal approximation to be valid? A general rule of thumb is that one can be confident of the normal approximation whenever the sample size $n$ is at least 30. That is, practically speaking, no matter how non-normal the underlying population distribution is, the sample mean of a sample of size at least 30 will be approximately normal. In most cases, the normal approximation is valid for much smaller sample sizes.
 
 
 
 ## Sample Variance
 
-Let $X_1, \dots, X_n$ be a random sample from a distribution with mean $μ$ and variance $\sigma^2$. Let $X$ be the sample mean. The statistic $S^2$, defined by
+Let $X_1, \dots, X_n$ be a random sample from a distribution with mean $μ$ and variance $\sigma^2$. Let $\bar{X}$ be the sample mean. The statistic $S^2$, defined by
 
 $$
-S^2 = \frac{\sum_{i=1}^n(X_{i} - \bar{X})^2}{n}
+S^2 = \frac{\sum_{i=1}^n(X_{i} - \bar{X})^2}{n-1}
 $$
 
 is called the *sample variance*. $S = \sqrt{S^2}$ is called the sample standard deviation.
@@ -160,7 +160,7 @@ $$
 
 In the previous section we derived that $\expect[S^2] = \sigma^2$. If we make the assumption that the population distribution is normal, then we can also derive the shape of the sampling distribution for $S^2$.
 
-**Theorem:** If $X_1, \dots , X_n$ is a sample from a normal population having mean $\mu$ and variance $\sigma^2$, then $\bar{X}$ and $S^2$ are independent random variables, with $X$ being normal with mean μ and variance $σ^2/n$ and $(n − 1)S^2/σ^2$ being chi-square with $n−1$ degrees of freedom.
+**Theorem:** If $X_1, \dots , X_n$ is a sample from a normal population having mean $\mu$ and variance $\sigma^2$, then $\bar{X}$ and $S^2$ are independent random variables, with $\bar{X}$ being normal with mean μ, variance $σ^2/n$ and $(n − 1)S^2/σ^2$ being chi-square with $n−1$ degrees of freedom.
 
 The above theorem not only provides the distributions of $\bar{X}$ and $S^2$ for a normal population, but also establishes the important fact that they are independent. For a proof of the theorem, refer to Sec 6.5.2 of Introduction to Probability and Statistics by Sheldon Ross.
 

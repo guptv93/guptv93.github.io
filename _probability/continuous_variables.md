@@ -365,7 +365,7 @@ $$
 \begin{align}
 f_{X, Y}(x, y) &= f_X(x) f_Y(y)\\
 &= \frac{1}{\sqrt{2\pi}}\textrm{exp}\bigg\{-\frac{x^2}{2} \bigg\} \cdot \frac{1}{\sqrt{2\pi}}\textrm{exp}\bigg\{-\frac{y^2}{2} \bigg\} \\
-&= \frac{1}{\sqrt{2\pi}} \textrm{exp}\bigg\{-\frac{(x^2 + y^2)}{2} \bigg\}
+&= \frac{1}{2\pi} \textrm{exp}\bigg\{-\frac{(x^2 + y^2)}{2} \bigg\}
 \end{align}
 $$
 

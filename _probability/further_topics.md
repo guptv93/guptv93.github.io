@@ -192,7 +192,7 @@ If $X$ and $Y$ have zero means and unit variances, then
 
 $$
 \begin{align}
-0 \leq \expect[(X-\rho Y)^2] &= E[X^2] - 2 \rho \expect[XY] - \rho^2\expect[Y^2]\\
+0 \leq \expect[(X-\rho Y)^2] &= E[X^2] - 2 \rho \expect[XY] + \rho^2\expect[Y^2]\\
 &= 1 - 2 \rho^2 + \rho^2\\
 &= 1 -\rho^2\\
 \end{align}
