@@ -329,7 +329,7 @@ Total Variance of $Y$ can be derived using Law of Total Variance. The derivation
 
 ### Covariance Matrix
 
-When working with multiple variables, the covariance matrix provides a succinct way to summarize the covariances of all pairs of variables. In particular, if $\mathbf{X} = (X_1, \dots, X_n)^T$ is a $n \times 1$ multivariate random variable, then the covariance matrix,
+When working with multiple variables, the covariance matrix provides a succinct way to summarize the covariances of all pairs of variables. If $\mathbf{X} = (X_1, \dots, X_n)^T$ is a $n \times 1$ multivariate random variable, then the covariance matrix,
 which we usually denote as $\Sigma$, is the $n \times n$ matrix whose $(i, j)$th entry is $\cov(X_i, X_j)$. 
 
 $$
@@ -343,50 +343,40 @@ $$
 \end{equation}
 $$
 
-Refer to [Chapter 3.6 of Bookdown.org](https://bookdown.org/compfinezbook/introcompfinr/Multivariate-Probability-Distributions-Using-Matrix-Algebra.html) for more details. Of particular importance is section 3.6.6, which states that if $\mathbf{Y} = \mathbf{AX} + \mathbf{b}$, then $\Sigma_\mathbf{Y} = \mathbf{A}\Sigma_\mathbf{X}\mathbf{A}^T$. Also take note that in this case, $f_\mathbf{Y}$ has shape similar to $f_\mathbf{X}$ with linear scaling and translation, similar to linear transformation of a univariate normal variable.
+Refer to [Chapter 3.6 of Bookdown.org](https://bookdown.org/compfinezbook/introcompfinr/Multivariate-Probability-Distributions-Using-Matrix-Algebra.html) for more details. Of particular importance is section 3.6.6, which states that: 
+
+&nbsp;&nbsp; If $\mathbf{Y} = \mathbf{AX} + \mathbf{b}$, then $\Sigma_\mathbf{Y} = \mathbf{A}\Sigma_\mathbf{X}\mathbf{A}^T$. 
 
 Notice that if $X_1, \dots, X_n$ are all independent random variables, then $\Sigma_\mathbf{X}$ is a diagonal matrix.
 
 ### Multivariate Normal Distribution
 
-*Sources: [CS229 Handout](/assets/documents/cs229_gaussians.pdf), [Noah Golmant Blog](/assets/documents/noahgolmant_gaussian.pdf)*
-
 We saw that if $X$ and $Y$ are independent normal variables then
 
 $$
-f_{X, Y}(x,y) = \frac{1}{2\pi \sigma_x \sigma_y }\textrm{exp}\bigg\{-\frac{(x-\mu_x)^2}{2\sigma_x^2}-\frac{(y-\mu_y)^2}{2\sigma_y^2}\bigg\} 
+\begin{align}
+f_{X, Y}(x,y) &= \frac{1}{2\pi \sigma_x \sigma_y }\textrm{exp}\bigg\{-\frac{(x-\mu_x)^2}{2\sigma_x^2}-\frac{(y-\mu_y)^2}{2\sigma_y^2}\bigg\} & (1) \\
+\end{align}
 $$
+
 
 If we consider $$\bt{X} = \mat{X \\ Y}$$, then we can rewrite the above equation as
 
 $$
-f_\bt{X}(\bt{x}) = \frac{1}{2\pi \sigma_x \sigma_y }\textrm{exp}\bigg\{-\frac{1}{2}(\bt{x} - \bt{\mu})^T\Sigma^{-1}(\bt{x} - \bt{\mu})\bigg\}\\
-$$
-
-Intuitively, this makes sense: the smaller the variance of some random variable $X_i$
-, the more “tightly” peaked the Gaussian distribution in that dimension.
-
-Till now we only discussed a multivariate normal distribution where each random variable is independent (contour axes are aligned with co-ordinate axes). But what if the two random variables $X$ and $Y$ are not independent ($\cov(X, Y) != 0$). In that case, the contours are still elliptical, but their major and minor axes are not aligned with the coordinate axes.
-
-![multivariate_normal](/assets/images/probability/further_topics.assets/multivariate_normal.png)
-
-How do we derive the equation for this distribution? Does the last equation still hold? For this we consider $\bt{X}$, such that $\bt{X_1}, \dots, \bt{X_n}$ are independent normal variables and apply a linear transform to $\bt{X}$. Then we derive the distribution for this transformed random variable. 
-
-In our case, the affine transformation will consist of a rotation followed by a scaling along the principal axes of our rotation, with one translation. Let the affine transformation function be $L: \mathbb{R}^N \to \mathbb{R}^N$, such that $L(\bt{x}) = \bt{Ex} + \bt{b}$. Here $\bt{E}$ can be represented as the square root of a symmetric positive definite matrix. If $\Delta = \bt{U}\Lambda\bt{U}^T$ is the symmetric positive definite matrix, then $\bt{E} = \Delta^{1/2} = \Lambda^{1/2}\bt{U}$. More details of matrix square root can be found [here](https://bookdown.org/compfinezbook/introcompfinr/Positive-Definite-Matrices.html). Our aim is to find the probability distribution for $\bt{Z} = L(\bt{X})$
-
-We know the following things about $\bt{Z}$ :  
-1. $\expect[Z] = \mu_Z = L(\expect[X]) = L(\mu_X)$
-2. $\Sigma_\bt{Z} = \bt{E}\Sigma_\bt{X}\bt{E}^T$. 
-
-Also, $\bt{x - \mu_x} = \bt{E}^{-1}(\bt{z - \mu_z})$. 
-
-Substituting this in the equation for $f_\bt{X}$, we get  
-
-$$
 \begin{align}
-f_\bt{Z}(\bt{z}) &= k\,\textrm{exp}\bigg\{-\frac{1}{2}\big[\bt{E}^{-1}(\bt{z - \mu_z})\big]^T\Sigma_\bt{X}^{-1}\bt{E}^{-1}(\bt{z - \mu_z})\bigg\} \\  
-&= k\,\textrm{exp}\bigg\{-\frac{1}{2}(\bt{z} - \mu_z)^T\Sigma_\bt{Z}^{-1}(\bt{z} - \mu_z)\bigg\} \\  
+f_\bt{X}(\bt{x}) &= \frac{1}{2\pi \sigma_x \sigma_y }\textrm{exp}\bigg\{-\frac{1}{2}(\bt{x} - \bt{\mu})^T\Sigma^{-1}(\bt{x} - \bt{\mu})\bigg\}\\
+&= \frac{1}{ (2\pi)^{n/2} |\Sigma|^{1/2} } \textrm{exp}\bigg\{-\frac{1}{2}(\bt{x} - \bt{\mu})^T\Sigma^{-1}(\bt{x} - \bt{\mu})\bigg\} & (2)\\
 \end{align}
 $$
+
+where $n$ is the num of independent variables. Intuitively, this makes sense: the smaller the variance of some random variable $X_i$, the more “tightly” peaked the Gaussian distribution in that dimension.
+
+Unfortunately, this derivation is restricted to the case where these entries are independent and 0-centered. How do we generalize to the case of Multivariate Gaussian Distribution with a non-diagonal covariance matrix? There are two ways to look at this:
+1. We can define a general multivariate gaussian to be an affine transformation of a standard gaussian (given by eq. 1) and derive the formula for the general case,
+2. We can define a general multivariate gaussian as any random variable following the probability distribution given in eq. 2, and prove that it is an affine transformation of standard gaussian.
+
+[Noah Golmant Blog](/assets/documents/noahgolmant_gaussian.pdf) (Part 2) takes the first approach and [CS229 Handout](/assets/documents/cs229_gaussians.pdf) (Appendix A.2) takes the second approach. The proofs also show that the affine transformation specifically consists of a rotation followed by a scaling along the principal axes of the rotation, with one translation.
+
+Side Note: The fact that two random variables $X$ and $Y$ both have a normal distribution does not imply that the pair $(X, Y)$ has a joint normal distribution. See [details](https://stats.stackexchange.com/questions/30159/is-it-possible-to-have-a-pair-of-gaussian-random-variables-for-which-the-joint-d).
 
 
