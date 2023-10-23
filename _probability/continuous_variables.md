@@ -48,7 +48,7 @@ $$
 \prob(X=x) = 0
 $$
 
-This tells us that at any single point, the PDF is exactly zero. Why? If $X$ denotes height of a person, then can't we say that the height of a person is 180.5 cms with certainty? The thing to notice here is that even in the previous statement, we are specifying a range. The range covers all the double, triple, and higher precision floating points greater than 180.5 and less than 180.6.
+This tells us that at any single point, the probability is exactly zero. Why? If $X$ denotes height of a person, then can't we say that the height of a person is 180.5 cms with certainty? The thing to notice here is that even in the previous statement, we are specifying a range. The range covers all the double, triple, and higher precision floating points greater than 180.5 and less than 180.6.
 
 
 ### Expected Value and Variance
