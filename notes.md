@@ -12,4 +12,4 @@ Find below, the links to my notes on Maths for Machine Learning. They are mostly
 
 * [Probability](/probability)
 * [Statistics](/statistics)
-* [Linear Algebra](/algebra)
+* [Linear Algebra](/linear_algebra)

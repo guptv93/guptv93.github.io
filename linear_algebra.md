@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Linear Algebra
-permalink : /algebra/
+permalink : /linear_algebra/
 ---
 
 <h1> {{ page.title }} </h1>
