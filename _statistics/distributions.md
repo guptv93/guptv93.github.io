@@ -77,7 +77,7 @@ The normal distribution was introduced by the French mathematician Abraham de Mo
 
 An important fact about normal random variables is that if $X$ is normal with mean $\mu$ and variance $\sigma^2$, then $Y = \alpha X + \beta$ is normal with mean $\alpha \mu + \beta$ and variance $\alpha^2\sigma^2$.
 
-It follows from the foregoing that if $X \sim \mathcal{N} (\sigma, \mu^2 )$, then
+It follows from the foregoing that if $X \sim \mathcal{N} (\mu, \sigma^2 )$, then
 
 $$
 Z = \frac{X-\mu}{\sigma}

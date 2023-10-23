@@ -31,7 +31,7 @@ $$
 X_1, \dots, X_n \sim \mathrm{Bernoulli}(p)
 $$
 
-be $n$ independent coin flips. Suppose we want to test if the coin is fair. Let $H_0$ denote the hypothesis that the coin is fair and let $H_1$ denote the hypothesis that the coin is not fair. $H_0$ is called the **null hypothesis** and $H_1$ is called the **alternative hypothesis**. We cna write the hypotheses as
+be $n$ independent coin flips. Suppose we want to test if the coin is fair. Let $H_0$ denote the hypothesis that the coin is fair and let $H_1$ denote the hypothesis that the coin is not fair. $H_0$ is called the **null hypothesis** and $H_1$ is called the **alternative hypothesis**. We can write the hypotheses as
 
 $$
 H_0 : p = 1/2 \textrm{ versus } H_1: p \neq 1/2

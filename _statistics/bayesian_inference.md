@@ -57,7 +57,7 @@ $d(n,k)$ is the Normalizing Constant (doesn't vary with $\Theta$). The distribut
 
 #### Point Estimates
 
-Many a times we are not interested in the posterior distribution of $\Theta$ over its entire range. We just need a point estimate for $\Theta$ given the value of $X$. Given a value of $X$ (say $x$), the point estimator takes a specific value based on the function $\prob(\Theta \vert X = x)$, . Therefore, the point estimator itself is a random variable denoted by $\hat{\Theta}$. Any value that the point estimator takes is called an estimate and is denoted by $\hat{\theta}$.
+Many a times we are not interested in the posterior distribution of $\Theta$ over its entire range. We just need a point estimate for $\Theta$ given the value of $X$. Given a value of $X$ (say $x$), the point estimator takes a specific value based on the function $\prob(\Theta \vert X = x)$. Therefore, the point estimator itself is a random variable denoted by $\hat{\Theta}$. Any value that the point estimator takes is called an estimate and is denoted by $\hat{\theta}$.
 
 The value of $\hat{\theta}$ is to be determined by applying some function $g$ to the observation $x$, resulting in $\hat{\theta} = g(x)$. The random variable $\hat{\Theta} = g(X)$ is called an estimator, and its realized value equals $g(x)$ whenever the random variable $X$ takes the value $x$. As explained, the reason that $\hat{\Theta}$ is a random variable is that the outcome of the estimation procedure depends on the random value of the observation.
 

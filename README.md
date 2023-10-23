@@ -11,13 +11,14 @@ Follow : https://jekyllrb.com/docs/installation/macos/ till `ruby -v`
 **Install bundler**
 
 ```bash
-gem install bundler  # requires Ruby 2.x.x.
+gem install bundler jekyll  # requires Ruby 2.x.x.
 ```
 
 **Serve website**
 
 ```bash
 cd <<GITHUB_PAGES_REPO>>
+bundle update
 bundle install
 bundle exec jekyll serve
 ```

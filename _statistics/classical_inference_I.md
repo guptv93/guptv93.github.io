@@ -43,8 +43,9 @@ $$
 \mathrm{b}_\theta(\hat\Theta_n) = \expect_\theta[\hat\Theta_n] - \theta
 $$
 
-The estimation error depends on every observation, but the bias only depends on $\theta$ . If the bias is zero, for every possible vlaue of $\theta$ , then we have an unbiased estimator, and this is a desirable property.
+The estimation error depends on every observation, but the bias only depends on $\theta$ . If the bias is zero, for every possible value of $\theta$ , then we have an unbiased estimator, and this is a desirable property.
 
+{:start="2"}
 2. **Consistency**
 
 We call an estimator **consistent** if the sequence $\hat\Theta_n$ converges to the true value of the parameter $\theta$, in probability, for every possible value of $\theta$. 
@@ -53,6 +54,7 @@ $$
 \hat\Theta_n \xrightarrow{n \to \theta} \theta
 $$
 
+{:start="3"}
 3. **Low Mean Squared Error**
 
 Besides the bias, we are usually interested in the size of the estimation error. This is captured by the mean squared error $\expect_\theta[\tilde\Theta_n^2]$.
@@ -66,7 +68,13 @@ $$
 \end{align}
 $$
 
-This formula is impotant because in many statistical problems, there is a trade-off between the two terms on the right-hand-side. Often a reduction in the variance is accompanies by an increase in the bias. In case of an unbiased estimator $\expect_\theta[\tilde\Theta_n^2] = \v_\theta(\hat\Theta_n)$. If we take a dumb estimator which always gives out an estimate of $0$, irrespective of the observation, then $\expect_\theta[\tilde\Theta_n^2] =  \v(\hat\Theta_n) + \textrm{bias} = 0 + (0 - \theta)^2 = \theta^2$. Of course, a good estimator is the one that manages to keep both terms small.
+This formula is important because in many statistical problems, there is a trade-off between the two terms on the right-hand-side. Often a reduction in the variance is accompanied by an increase in the bias. In case of an unbiased estimator $\expect_\theta[\tilde\Theta_n^2] = \v_\theta(\hat\Theta_n)$. If we take a dumb estimator which always gives out an estimate of $0$, irrespective of the observation, then 
+
+$$
+\expect_\theta[\tilde\Theta_n^2] =  \v(\hat\Theta_n) + \textrm{bias} = 0 + (0 - \theta)^2 = \theta^2
+$$
+
+Of course, a good estimator is the one that manages to keep both terms small.
 
 **Example (Expected Value Estimation)** Let $X_1, \dots, X_n \sim$ Bernoulli($p$). We want to estimate the expected value of our distribution, namely $p$. Let our estimator be
 
@@ -134,9 +142,9 @@ For a concrete interpretation, look at it like this. We construct a confidence i
 
 
 
-Point estimators often have a limiting Normal distribution, meaning that $\hat\Theta_n \sim \mathcal{N}(\theta, \text{se}^2)$. In this case, we can construct confidence intervals as follows:
+Point estimators often have a limiting Normal distribution, meaning that $\hat\Theta_n \sim \mathcal{N}(\theta, \text{se}^2)$. In this case, we can construct confidence intervals as follows.
 
-**Theorem**: Suppose that $\hat{\Theta}_ n \sim \mathcal{N}(\theta, \text{se}^2)$. Let $z_ {\alpha/2}$ be such that $\prob{(Z > z_{\alpha/2})} = \alpha/2$, where $Z \sim \mathcal{N}(0, 1)$. By symmetry of normal distribution $\prob(-z_{\alpha/2}< Z < z_{\alpha/2}) = 1 - \alpha$.
+**Theorem**: Suppose that $\hat{\Theta}_ n \sim \mathcal{N}(\theta, \text{se}^2)$. Let $z_ {\alpha/2}$ be such that $\prob{(Z > z_{\alpha/2})} = \alpha/2$, where $Z \sim \mathcal{N}(0, 1)$. By symmetry of normal distribution $\prob(-z_{\alpha/2}< Z < z_{\alpha/2}) = 1 - \alpha$
 
 Let
 

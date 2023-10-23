@@ -122,8 +122,8 @@ Also note that, when the $Y_i$(s) are normal random variables, the least square 
 $$
 \begin{align}
 f_{Y_1, \dots, Y_n} (y_1, \dots, y_n) &= \prod_i f_{Y_i}(y_i) \\
-&= \prod_i \frac{1}{\sigma\sqrt{2\pi}} e^{(y_i - \alpha -\beta x_i)^2/2\sigma^2} \\
-&= \frac{1}{(2\pi)^{n/2}\sigma^n} e^{\sum_i(y_i - \alpha -\beta x_i)^2/2\sigma^2}\\
+&= \prod_i \frac{1}{\sigma\sqrt{2\pi}} e^{-(y_i - \alpha -\beta x_i)^2/2\sigma^2} \\
+&= \frac{1}{(2\pi)^{n/2}\sigma^n} e^{-\sum_i(y_i - \alpha -\beta x_i)^2/2\sigma^2}\\
 \end{align}
 $$
 
