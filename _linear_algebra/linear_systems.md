@@ -1,7 +1,7 @@
 ---
 layout: default
 title: System of Linear Equations (Part I)
-slug: row-space
+slug: square-matrix
 item_num: 2
 excerpt: Essence of Linear Algebra talks about the Matrix as a list of column vectors. In this note, we explore the Matrix as a set of linear equations (row-wise). We go over Gaussian Elimination, Matrix Inversion and A = LU Factorization; the topics that were left out of Essence of Linear Algebra videos. They follow Gilbert Strang’s 18.06 Course on MIT OCW. Also note, for now, we only talk about square matrices and systems where num of linear equations is equal to the number of unknowns.
 ---

@@ -180,11 +180,31 @@ A set of orthonormal vectors $$\{\bt{q_1}, \bt{q_2},\dots\}$$ is a set of unit v
 
 Proof: $\|Q\bt{x}\|^2 = (Q\bt{x})^T(Q\bt{x}) = \bt{x}^TQ^TQ\bt{x} = \bt{x}^T\bt{x} = \|\bt{x}\|^2$
 
-Thus, multiplication by $Q$ just *rotates* the vector.
+Also,
+
+$$
+\begin{align}
+(Q\bt{x})^T (Q\bt{y}) &= (\bt{x}^T Q^T) (Q \bt{y}) \\
+&= \bt{x}^T (Q^T Q) \bt{y} \\
+&= \bt{x}^T \bt{y}
+\end{align}
+$$
 
 
+The magnitude of each vector, and angle between each pair of vectors is maintained. Thus, multiplication by $Q$ just *rotates* the entire vector space.  
 
-**Property 2:** If $Q$ is orthonormal, then the Projection Matrix $P = Q(Q^TQ)^{-1}Q^T = Q(I)^{-1}Q^T = QQ^T$. Remember that $QQ^T$ is not equal to the Identity Matrix, when $Q$ is non-square.
+
+**Property 2:** If $Q$ is orthonormal, then the Projection Matrix 
+
+$$
+\begin{align}
+P &= Q(Q^TQ)^{-1}Q^T \\
+&= Q(I)^{-1}Q^T \\
+&= QQ^T \\
+\end{align}
+$$
+
+Remember that $QQ^T$ is not equal to the Identity Matrix, when $Q$ is non-square.
 
 What happens when $Q$ is square? We have $ Q^TQ=I = QQ^T$ and $Q^{-1} = Q^T$.
 
