@@ -31,7 +31,7 @@ Our task is to come up with an estimate $\hat{\Theta}$. The estimate is decided 
 
 ![Classical Inference](/assets/images/statistics/classical_inference_I.assets/image-20200704112537755.png)
 
-Sometimes, particularly when we are interested in the role of the number of observations $n$, we use the notation $\hat\Theta_n$ for an estimator. The distribution of $\hat\Theta_n$ is called the **sampling distribution** and is generally dependent on $\theta$. Both $\expect_\theta[\hat\Theta_n]$ and $\v_\theta[\hat\Theta_n]$  are numerical functions of $\theta$, but for simplicity, when the context is clear we sometimes do not show this dependence. 
+Sometimes, particularly when we are interested in the role of the number of observations $n$, we use the notation $\hat\Theta_n$ for an estimator. The distribution of $\hat\Theta_n$ is called the **sampling distribution** and is generally dependent on $\theta$. The mean and variance of $\hat\Theta_n$ are denoted by $\expect_\theta[\hat\Theta_n]$ and $\v_\theta[\hat\Theta_n]$ respectively, and the expectation is taken over all $X$ ($n$-datasets). Both $\expect_\theta[\hat\Theta_n]$ and $\v_\theta[\hat\Theta_n]$  are numerical functions of $\theta$, but for simplicity, when the context is clear we sometimes do not show this dependence. 
 
 The following are some of the desirable properties that we look for, from an estimator:
 
