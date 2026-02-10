@@ -142,36 +142,46 @@ For a concrete interpretation, look at it like this. We construct a confidence i
 
 
 
-Point estimators often have a limiting Normal distribution, meaning that $\hat\Theta_n \sim \mathcal{N}(\theta, \text{se}^2)$. In this case, we can construct confidence intervals as follows.
+**Calculating a Confidence Interval for the Mean of a Normal distribution**
 
-**Theorem**: Suppose that $\hat{\Theta}_ n \sim \mathcal{N}(\theta, \text{se}^2)$. Let $z_ {\alpha/2}$ be such that $\prob{(Z > z_{\alpha/2})} = \alpha/2$, where $Z \sim \mathcal{N}(0, 1)$. By symmetry of normal distribution $\prob(-z_{\alpha/2}< Z < z_{\alpha/2}) = 1 - \alpha$
+Suppose that $X_1, \dots, X_n$ is a sample from a normal population having unknown mean $\theta$ and known variance $\sigma^2$. It has been shown that $\hat{\Theta} = \sum^n_{i=1}X_i$  is the MLE estimator for $\theta$. However, we don’t expect that the sample mean $\hat{\Theta}$  will exactly equal $\theta$, but rather that it will “be close”. Hence, we will look for a confidence interval. To obtain this interval estimator, we make use of the probability distribution of the point estimator. 
 
-Let
-
+We know that the point estimator $\hat{\Theta}$ is normal with mean $\theta$ and variance $\sigma^2/n$. It follows that
 $$
-C_n = (\hat{\Theta}_n - z_{\alpha/2}\hat{\text{se}}, \hat{\Theta}_n + z_{\alpha/2}\hat{\text{se}})
-$$
-
-Then 
-
-$$
-\prob_{\theta}(\theta \in C_n) \to 1 - \alpha
+\frac{\hat{\Theta} - \theta}{\sigma/\sqrt{n}}
 $$
 
-**Proof**: Let $Z_n = \frac{\hat\Theta_n - \theta}{\hat{\text{se}}}$. By assumption $Z_n \to Z$ and $n$ gets larger. Hence,
 
+has a standard normal distribution. Let $z_ {\alpha/2}$ be such that $\prob{(Z > z_{\alpha/2})} = \alpha/2$, where $Z \sim \mathcal{N}(0, 1)$. By symmetry of normal distribution 
+$$
+\prob(-z_{\alpha/2}< Z < z_{\alpha/2}) = 1 - \alpha
+$$
+As a result we can say that
 $$
 \begin{align}
-\prob_\theta(\theta \in C_n) &= \prob_\theta(\hat\Theta_n- z_{\alpha/2}\hat{\text{se}} < \theta < \hat{\Theta}_n + z_{\alpha/2}\hat{\text{se}}) \\
-&= \prob_\theta(- z_{\alpha/2}< \frac{\hat\Theta_n- \theta}{\hat{\text{se}}} < z_{\alpha/2}) \\
-&= \prob_\theta(- z_{\alpha/2}< Z_n < z_{\alpha/2}) \\
-&\to \prob_\theta(- z_{\alpha/2}< Z < z_{\alpha/2}) \\
-&= 1 - \alpha \\
-\end{align} \\
+\prob(-z_{\alpha/2} &< \frac{\hat{\Theta} - \theta}{\sigma/\sqrt{n}} < z_{\alpha/2}) = 1 - \alpha \\
+ \text{or, }\prob(-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} &< \hat{\Theta} - \theta < z_{\alpha/2}\frac{\sigma}{\sqrt{n}})  = 1 - \alpha \\
+  \text{or, }\prob(-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} &<  \theta - \hat{\Theta} < z_{\alpha/2}\frac{\sigma}{\sqrt{n}})  = 1 - \alpha &\text{multiplying through -1} \\
+    \text{or, }\prob(-z_{\alpha/2}\frac{\sigma}{\sqrt{n}} + \hat{\Theta} &<  \theta <  z_{\alpha/2}\frac{\sigma}{\sqrt{n}} + \hat{\Theta})  = 1 - \alpha \\
+\end{align}
 $$
 
-**Example** Let $X_1, \dots, X_n \sim$ Bernoulli($p$) and let $\hat{p}_ n = \frac{1}{n}\sum_i{X_i}$. Then $\v{(\hat{p}_ n)} = \frac{p(1-p)}{n}$. Hence, $\text{se} = \sqrt{p(1-p)/n}$ and $\hat{\text{se}} = \sqrt{\hat{p}_ n(1 - \hat{p}_ n)/n}$. By the Central Limit Theorem, $\hat{p}_ n \approx \mathcal{N}(p, \hat{\text{se}}^2)$. Therefore, an approximate $1 - \alpha$ confidence interval is 
 
+Hence a $1 - \alpha$ two-sided confidence interval for the mean of a normal distribution is given by
+
+$$
+C_n = (\hat{\Theta} - z_{\alpha/2}\hat{\text{se}}, \hat{\Theta} + z_{\alpha/2}\hat{\text{se}})
+$$
+
+where $\hat{\Theta}$ is the observed sample mean.
+
+
+
+Note: The confidence interval for $\theta$ when $\sigma$ is known is based on the fact that $\frac{\hat{\Theta} - \theta}{\sigma/\sqrt{n}}$ has a standard normal distribution. When $\sigma$ is unknown, the approach is to estimate it by $S$ (sample variance) and then use the fact that $\frac{\hat{\Theta} - \theta}{ S/\sqrt{n}}$ has a t-distribution with $n−1$ degrees of freedom. See section 7.3 from Intro to Probability, Sheldon Ross, for more details.
+
+
+
+**Example** Let $X_1, \dots, X_n \sim$ Bernoulli($p$) and let $\hat{p}_ n = \frac{1}{n}\sum_i{X_i}$. Then $\v{(\hat{p}_ n)} = \frac{p(1-p)}{n}$. Hence, $\text{se} = \sqrt{p(1-p)/n}$ and $\hat{\text{se}} = \sqrt{\hat{p}_ n(1 - \hat{p}_ n)/n}$. By the Central Limit Theorem, $\hat{p}_ n \approx \mathcal{N}(p, \hat{\text{se}}^2)$. Therefore, an approximate $1 - \alpha$ confidence interval is 
 $$
 \hat{p}_n \pm z_{\alpha/2}\hat{\text{se}}
 $$
