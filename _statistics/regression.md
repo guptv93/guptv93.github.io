@@ -121,7 +121,7 @@ If the average residual is positive, then we reduce the value of the intercept t
 
 Using the Least Square Estimators above, we can fit a line over any given data (linear or not). However, the fitted line will not mean much if there is no probabilistic justification for it. In this section, we develop a probabilistic justification for the least squares estimators, using Maximum Likelihood Estimation in Classical Statistics.
 
-We assume that the $x_i$ are given numbers (not random variables). We assume that $y_i$ is the realization of a random variable $Y_i$, generated according to the above mentioned linear regression model
+We assume that the $x_i$ are given numbers (not random variables). We assume that $y_i$ is the realization of a random variable $Y_i$, generated according to the relationship:
 
 
 $$
@@ -129,24 +129,32 @@ $$
 Y_i = \alpha + \beta x_i + \epsilon_i && i = 1, 2, 3, ..., n
 \end{align*}
 $$
-where the $\epsilon_i$ are i.i.d. normal random variables with mean zero and variance. It follows that the $Y_i$ are independent normal variables, where $Y_i$ has mean $\alpha + \beta x_i$ and variance $\sigma^2$. In this case, the probability of observations $y_1, y_2, \dots, y_n$ is given as follows:
+
+
+where the $\epsilon_i$ are i.i.d. normal random variables with mean zero and variance. It follows that the $Y_i$ are independent normal variables, where $Y_i$ has mean $\alpha + \beta x_i$ and variance $\sigma^2$. In this case, the probability of observations $y_1, y_2, \dots, y_n$ is given as follows:  
+
+
 $$
-\begin{align}
+\begin{align*}
 f_{Y_1, \dots, Y_n} (y_1, \dots, y_n; \alpha, \beta) &= \prod_i f_{Y_i}(y_i; \alpha, \beta) \\
 &= \prod_i \frac{1}{\sigma\sqrt{2\pi}} e^{-(y_i - \alpha -\beta x_i)^2/2\sigma^2} \\
 &= \frac{1}{(2\pi)^{n/2}\sigma^n} e^{-\sum_i(y_i - \alpha -\beta x_i)^2/2\sigma^2}\\
-\end{align}
-$$
-
-Here $\alpha, \beta$ are unknown parameters. Let us say $A$ and $B$ are our estimators of $\alpha$ and $\beta$. Then we pick the values of $A$ and $B$ so that the likelihood of our observations is the maximum (MLE). 
-$$
-\begin{align*}
-A, B &= \max_{\alpha, \beta} f_{Y}(Y; \alpha, \beta) \\
-&= \max_{\alpha, \beta} \frac{1}{(2\pi)^{n/2}\sigma^n} e^{-\sum_i(Y_i - \alpha -\beta x_i)^2/2\sigma^2} \\
-&= \max_{\alpha, \beta}{-\sum_i(Y_i - \alpha -\beta x_i)^2/2\sigma^2} &\text{maximize exponent} \\
-&= \min_{\alpha, \beta}\sum_i(Y_i - \alpha -\beta x_i)^2
 \end{align*}
 $$
+
+Here the values of $\alpha, \beta$ are unknown. Let us say $A$ and $B$ are our estimators of $\alpha$ and $\beta$. Then we pick the values of $A$ and $B$ so that the likelihood of our observations is the maximum (MLE). If $\hat\theta_0, \hat\theta_1$ are the values of the estimators, then
+
+
+$$
+\begin{align*}
+\hat\theta_0, \hat\theta_1 &= \text{arg}\max_{\theta_0, \theta_1} f_{Y}(y; \theta_0, \theta_1) \\
+&= \text{arg}\max_{\theta_0, \theta_1} \frac{1}{(2\pi)^{n/2}\sigma^n} e^{-\sum_i(y_i - \theta_0 -\theta_1 x_i)^2/2\sigma^2} \\
+&= \text{arg}\max_{\theta_0, \theta_1}{-\sum_i(y_i - \theta_0 - \theta_1 x_i)^2/2\sigma^2} &\text{maximize exponent} \\
+&= \text{arg}\min_{\theta_0, \theta_1}\sum_i(y_i - \theta_0 -\theta_1 x_i)^2
+\end{align*}
+$$
+
+
 Thus, Maximum Likelihood Estimation leads to the same estimates that we get to through Least Squares Estimation. Remember that the assumption of $Y_i \sim \mathcal{N}(\alpha + \beta x_i, \sigma^2)$, is needed for Maximum Likelihood Estimation, but not for Least Squares Estimation. We will see in the next section that making these assumptions, helps us to go beyond point estimates and to derive entire distributions for $A$ and $B$.
 
 
