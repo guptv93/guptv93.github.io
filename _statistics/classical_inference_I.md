@@ -142,9 +142,9 @@ For a concrete interpretation, look at it like this. We construct a confidence i
 
 
 
-**Calculating a Confidence Interval for the Mean of a Normal distribution**
+**Confidence Interval for the Mean of a Sampling Distribution**
 
-Suppose that $X_1, \dots, X_n$ is a sample from a normal population having unknown mean $\theta$ and known variance $\sigma^2$. It has been shown that $\hat{\Theta} = \sum^n_{i=1}X_i$  is the MLE estimator for $\theta$. However, we don’t expect that the sample mean $\hat{\Theta}$  will exactly equal $\theta$, but rather that it will “be close”. Hence, we will look for a confidence interval. To obtain this interval estimator, we make use of the probability distribution of the point estimator. 
+Suppose that $X_1, \dots, X_n$ is a sample from a normal population having unknown mean $\theta$ and known variance $\sigma^2$. It has been shown that $\hat{\Theta} = \frac{\sum^n_{i=1}X_i}{n}$  is the MLE estimator for $\theta$. However, we don’t expect that the sample mean $\hat{\Theta}$  will exactly equal $\theta$, but rather that it will “be close”. Hence, we will look for a confidence interval. To obtain this interval estimator, we make use of the probability distribution of the point estimator. 
 
 We know that the point estimator $\hat{\Theta}$ is normal with mean $\theta$ and variance $\sigma^2/n$. It follows that
 $$
@@ -170,18 +170,25 @@ $$
 Hence a $1 - \alpha$ two-sided confidence interval for the mean of a normal distribution is given by
 
 $$
-C_n = (\hat{\Theta} - z_{\alpha/2}\hat{\text{se}}, \hat{\Theta} + z_{\alpha/2}\hat{\text{se}})
+C_n = (\hat{\Theta} - z_{\alpha/2}\frac{\sigma}{\sqrt{n}}, \hat{\Theta} + z_{\alpha/2}\frac{\sigma}{\sqrt{n}})
 $$
 
 where $\hat{\Theta}$ is the observed sample mean.
 
 
 
-Note: The confidence interval for $\theta$ when $\sigma$ is known is based on the fact that $\frac{\hat{\Theta} - \theta}{\sigma/\sqrt{n}}$ has a standard normal distribution. When $\sigma$ is unknown, the approach is to estimate it by $S$ (sample variance) and then use the fact that $\frac{\hat{\Theta} - \theta}{ S/\sqrt{n}}$ has a t-distribution with $n−1$ degrees of freedom. See section 7.3 from Intro to Probability, Sheldon Ross, for more details.
+Note 1: The confidence interval for $\theta$ when $\sigma$ is known is based on the fact that $\frac{\hat{\Theta} - \theta}{\sigma/\sqrt{n}}$ has a standard normal distribution. When $\sigma$ is unknown, the approach is to replace it by $S$ (sample standard deviation) and then use the fact that $\frac{\hat{\Theta} - \theta}{ S/\sqrt{n}}$ has a t-distribution with $n−1$ degrees of freedom. See section 7.3.1 from Intro to Probability, Sheldon Ross, for more details.
+
+Note 2: Even if the generating distribution for $X_1, \dots, X_n$ is not normal, the distribution of $\hat{\Theta}_n$ will approximately be normal if $n$ is large enough (Central Limit Theorem).
 
 
 
-**Example** Let $X_1, \dots, X_n \sim$ Bernoulli($p$) and let $\hat{p}_ n = \frac{1}{n}\sum_i{X_i}$. Then $\v{(\hat{p}_ n)} = \frac{p(1-p)}{n}$. Hence, $\text{se} = \sqrt{p(1-p)/n}$ and $\hat{\text{se}} = \sqrt{\hat{p}_ n(1 - \hat{p}_ n)/n}$. By the Central Limit Theorem, $\hat{p}_ n \approx \mathcal{N}(p, \hat{\text{se}}^2)$. Therefore, an approximate $1 - \alpha$ confidence interval is 
+**Example** Let $X_1, \dots, X_n \sim$ Bernoulli($p$) and let $\hat{p}_ n = \frac{1}{n}\sum_i{X_i}$. Then $\v{(\hat{p}_ n)} = \frac{p(1-p)}{n}$. Hence, $\text{se} = \sqrt{p(1-p)/n}$ and $\hat{\text{se}} = \sqrt{\hat{p}_ n(1 - \hat{p}_ n)/n}$.  
+
+By the Central Limit Theorem, $\hat{p}_ n \approx \mathcal{N}(p, \hat{\text{se}}^2)$ (for simplicity; in reality it will be closer to a t-distribution with $n-1$ degrees). Therefore, an approximate $1 - \alpha$ confidence interval is 
+
+ 
 $$
-\hat{p}_n \pm z_{\alpha/2}\hat{\text{se}}
+\hat{p}_n \pm z_{\alpha/2}\hat{\text{se}} = \hat{p}_n \pm z_{\alpha/2}\sqrt{\hat{p}_ n(1 - \hat{p}_ n)/n}
 $$
+
