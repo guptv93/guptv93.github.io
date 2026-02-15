@@ -122,6 +122,8 @@ If the average residual is positive, then we reduce the value of the intercept t
 Using the Least Square Estimators above, we can fit a line over any given data (linear or not). However, the fitted line will not mean much if there is no probabilistic justification for it. In this section, we develop a probabilistic justification for the least squares estimators, using Maximum Likelihood Estimation in Classical Statistics.
 
 We assume that the $x_i$ are given numbers (not random variables). We assume that $y_i$ is the realization of a random variable $Y_i$, generated according to the above mentioned linear regression model
+
+
 $$
 \begin{align*}
 Y_i = \alpha + \beta x_i + \epsilon_i && i = 1, 2, 3, ..., n
